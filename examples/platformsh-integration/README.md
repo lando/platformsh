@@ -1,5 +1,5 @@
-Platform.sh Drupal 8 Example
-============================
+Platform.sh Integration Example
+===============================
 
 This example exists primarily to test the following documentation:
 

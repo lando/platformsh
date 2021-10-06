@@ -15,7 +15,7 @@ jobs:
         node-version:
           - '14'
         leia-tests:
-          - word-press-example
+          - platform-sh-maria-db-example
     steps:
 
       # Install deps and cache
@@ -50,13 +50,18 @@ jobs:
           mkdir -p ~/.lando/cache
           echo false > ~/.lando/cache/report_errors
           sed -i "s/report: true.*/report: false/" config.yml
-      - name: Package CLI
-        run: yarn build:cli
-      - name: Replace source CLI with packaged one
-        run: sudo mv ./dist/@lando/cli /usr/local/bin/lando
-      - name: Verify we can run the packaged CLI
+      # @NOTE:
+      # It would be SO COOL to run tests against both STABLE and EDGE with failures allowed on EDGE?
+      - name: Grab latest edge Lando CLI
+        run: |
+          sudo curl -fsSL -o /usr/local/bin/lando "https://files.lando.dev/cli/lando-linux-x64-edge"
+          chmod +x /usr/local/bin/lando
+      - name: Verify Lando works as we expect
         run: |
           lando version
+          lando config
+          cd examples/mariadb
+          lando --clear
           lando config
 
       # This block should eventually become use lando/actions-leia@v2
