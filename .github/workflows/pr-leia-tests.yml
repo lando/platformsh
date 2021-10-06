@@ -51,8 +51,8 @@ jobs:
       - name: Disable usage and error reporting
         run: |
           mkdir -p ~/.lando/cache
-          # echo false > ~/.lando/cache/report_errors
-          sed -i "s/report: true.*/report: false/" config.yml
+          echo false > ~/.lando/cache/report_errors
+          # sed -i "s/report: true.*/report: false/" config.yml
       # @NOTE:
       # It would be SO COOL to run tests against both STABLE and EDGE with failures allowed on EDGE?
       - name: Verify Lando works as we expect
