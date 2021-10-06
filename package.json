@@ -13,7 +13,11 @@
     "url": "https://github.com/lando/platformsh/issues"
   },
   "homepage": "https://github.com/lando/platformsh",
-  "keywords": ["lando", "lando-plugin", "platformsh"],
+  "keywords": [
+    "lando",
+    "lando-plugin",
+    "platformsh"
+  ],
   "engines": {
     "node": ">=14.0.0"
   },
@@ -41,7 +45,19 @@
     "test": "yarn lint && yarn test:unit"
   },
   "dependencies": {
+    "js-yaml": "^3.4.6",
+    "lodash": "^4.17.21",
+    "platformsh-client": "^0.1.179",
+    "tar": "^6.1.11"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
+    "command-line-test": "^1.0.10",
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0",
+    "leia-parser": "^0.4.0",
+    "mocha": "^9.1.2",
+    "nyc": "^15.1.0",
+    "version-bump-prompt": "^4.2.1"
   }
 }
