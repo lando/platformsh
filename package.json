@@ -1,0 +1,47 @@
+{
+  "name": "@lando/platformsh",
+  "description": "A Lando plugin that provides a tight integration with Platform.sh.",
+  "version": "0.4.0",
+  "author": "Mike Pirog @pirog",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lando/platformsh"
+  },
+  "bugs": {
+    "email": "mike@lando.dev",
+    "url": "https://github.com/lando/platformsh/issues"
+  },
+  "homepage": "https://github.com/lando/platformsh",
+  "keywords": ["lando", "lando-plugin", "platformsh"],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "main": "index.js",
+  "nyc": {
+    "include": [
+      "lib/**/*.js",
+      "recipes/**/*.js",
+      "services/**/*.js",
+      "types/**/*.js"
+    ],
+    "exclude": [
+      "test/**"
+    ],
+    "cache": true,
+    "all": true
+  },
+  "scripts": {
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "generate:tests": "leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
+    "lint": "eslint --quiet --no-ignore .",
+    "release": "bump --prompt --tag --all --push",
+    "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js experimental/**/test/*.spec.js integrations/**/test/*.spec.js plugins/**/test/**/*.spec.js",
+    "test:functional": "mocha --timeout 900000 test/**/*.func.js",
+    "test": "yarn lint && yarn test:unit"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
