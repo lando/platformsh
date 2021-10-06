@@ -1,4 +1,4 @@
-name: WordPress Tests
+name: Functional Tests Against Edge
 
 on:
   pull_request:
@@ -44,18 +44,17 @@ jobs:
         run: |
           docker --version | grep "20.10."
           docker-compose --version | grep "1.29."
-      # - name: Install via hyperdrive if above is bad
-      - name: Disable usage and error reporting
-        run: |
-          mkdir -p ~/.lando/cache
-          echo false > ~/.lando/cache/report_errors
-          sed -i "s/report: true.*/report: false/" config.yml
-      # @NOTE:
-      # It would be SO COOL to run tests against both STABLE and EDGE with failures allowed on EDGE?
       - name: Grab latest edge Lando CLI
         run: |
           sudo curl -fsSL -o /usr/local/bin/lando "https://files.lando.dev/cli/lando-linux-x64-edge"
           chmod +x /usr/local/bin/lando
+      - name: Disable usage and error reporting
+        run: |
+          mkdir -p ~/.lando/cache
+          # echo false > ~/.lando/cache/report_errors
+          sed -i "s/report: true.*/report: false/" config.yml
+      # @NOTE:
+      # It would be SO COOL to run tests against both STABLE and EDGE with failures allowed on EDGE?
       - name: Verify Lando works as we expect
         run: |
           lando version
