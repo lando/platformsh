@@ -74,6 +74,7 @@ jobs:
           lando --clear
           lando config
           lando start -vvv
+          lando logs -s mariadb
           lando ssh -s mariadb -u root -c "ps axf"
           lando ssh -s mariadb -u root -c "/helpers/psh-mysql-helper.sh"
           lando mariadb main -e "show tables;"
