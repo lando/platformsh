@@ -68,6 +68,7 @@ jobs:
           lando start -vvv
           lando ssh -s mariadb -u root -c "cat /etc/platform/templates/my.cnf"
           lando ssh -s mariadb -u root -c "ls -lsa /etc/platform/templates"
+          lando ssh -s mariadb -u root -c "/etc/service/mysql-standalone/run"
           # docker ps -a
           # lando logs
           # sleep 100
