@@ -56,28 +56,27 @@ jobs:
           mkdir -p ~/.lando/cache
           cp -f test-config.yml ~/.lando/config.yml
           echo false > ~/.lando/cache/report_errors
-      # @NOTE:
-      # It would be SO COOL to run tests against both STABLE and EDGE with failures allowed on EDGE?
-      - name: Verify Lando works as we expect
+      - name: Verify Lando works and is configured correctly?
         run: |
+          # Is it the correct verison?
+          lando version
+          # Verify legacy platformsh recipe is not loading
+          lando config --path recipes | grep platformsh || echo "$?" | grep 1
+          # Verify our examples dogfood themselves
+          cd examples/mariadb
+          lando config --path recipes | grep platformsh
+
+      # This block should eventually become use lando/actions-leia@v2
+      # @NOTE? Do we want a way for our leia-action to configure apparmor since
+      # this might break a whole bunch of tests? or is this literally just a thing
+      # for the platform.sh mysql/mariadb container
+      - name: Configure apparmor
+        run: |
+          set -x
           sudo apt-get remove mysql-server --purge
           sudo apt-get install apparmor-profiles
           sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
-          ls -lsa /etc/apparmor.d
-
-          lando version
-          lando config
-          cd examples/mariadb
-          lando --clear
-          lando config
-          lando start -vvv
-          lando logs -s mariadb
-          lando ssh -s mariadb -u root -c "ps axf"
-          lando ssh -s mariadb -u root -c "/helpers/psh-mysql-helper.sh"
-          lando mariadb main -e "show tables;"
-
-      # This block should eventually become use lando/actions-leia@v2
-      # - name: Generate tests
-      #   run: yarn generate:tests
-      # - name: Run ${{ matrix.leia-tests }} tests
-      #   run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}.func.js
+      - name: Generate tests
+        run: yarn generate:tests
+      - name: Run ${{ matrix.leia-tests }} tests
+        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}.func.js
