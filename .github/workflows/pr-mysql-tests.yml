@@ -54,7 +54,7 @@ jobs:
       - name: Move in lando config appropriate for testing
         run: |
           mkdir -p ~/.lando/cache
-          cp -f test-config ~/.lando/config.yml
+          cp -f test-config.yml ~/.lando/config.yml
           echo false > ~/.lando/cache/report_errors
       # @NOTE:
       # It would be SO COOL to run tests against both STABLE and EDGE with failures allowed on EDGE?
