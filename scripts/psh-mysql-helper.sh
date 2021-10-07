@@ -3,7 +3,7 @@ set -e
 exec 2>&1
 
 chown app:app /run/.configs/etc/platform/templates/my.cnf
-chmod 777 /run/.configs/etc/platform/templates/my.cnf
+chmod 0444 /run/.configs/etc/platform/templates/my.cnf
 id
 cat /etc/passwd
 
