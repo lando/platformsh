@@ -44,7 +44,7 @@ lando ssh -s mariadb -c "id" | grep app
 lando ssh -s mariadb -c "mysql -V" | grep 10.2.
 
 # Should be able to connect to all mariadb relationships
-lando mariadb main -e "show tables"
+lando mariadb main -e "show tables;"
 
 # Should be able to connect to mysql from the application containers
 lando ssh -s app -c "curl -I localhost/mysql.php" | grep HTTP/1.1 | grep "200 OK"
