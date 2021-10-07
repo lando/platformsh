@@ -14,7 +14,7 @@ Run the following commands to get up and running with this example.
 # Should poweroff
 lando poweroff
 
-# Should start up our successfully
+# Should start up successfully
 lando start
 ```
 
@@ -59,6 +59,6 @@ Run the following commands to trash this app like nothing ever happened.
 # Should be able to destroy our app
 lando destroy -y
 
-# Should be able to poweroff succesfully
+# Should poweroff
 lando poweroff
 ```
