@@ -66,12 +66,14 @@ jobs:
           lando --clear
           lando config
           lando start -vvv
-          docker ps -a
-          lando logs
-          sleep 100
-          lando ssh -s mariadb -u root -c "ps axf"
-          lando ssh -s mariadb -u root -c "/etc/service/mysql-standalone/run"
-          lando mariadb main -e "show tables;"
+          lando ssh -s mariadb -u root -c "cat /etc/platform/templates/my.cnf"
+          lando ssh -s mariadb -u root -c "ls -lsa /etc/platform/templates"
+          # docker ps -a
+          # lando logs
+          # sleep 100
+          # lando ssh -s mariadb -u root -c "ps axf"
+          # lando ssh -s mariadb -u root -c "/etc/service/mysql-standalone/run"
+          # lando mariadb main -e "show tables;"
 
       # This block should eventually become use lando/actions-leia@v2
       # - name: Generate tests
