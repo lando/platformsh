@@ -65,9 +65,14 @@ jobs:
           cd examples/mariadb
           lando --clear
           lando config
+          lando start -vvv
+          docker ps -a
+          lando logs
+          lando
+          lando mariadb main -e "show tables;"
 
       # This block should eventually become use lando/actions-leia@v2
-      - name: Generate tests
-        run: yarn generate:tests
-      - name: Run ${{ matrix.leia-tests }} tests
-        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}.func.js
+      # - name: Generate tests
+      #   run: yarn generate:tests
+      # - name: Run ${{ matrix.leia-tests }} tests
+      #   run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}.func.js
