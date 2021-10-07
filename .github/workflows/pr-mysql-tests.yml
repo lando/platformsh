@@ -74,21 +74,9 @@ jobs:
           lando --clear
           lando config
           lando start -vvv
-          docker inspect landoplatformshmysql_mariadb_1
-          lando ssh -s mariadb -u root -c "ls -lsa /etc/platform/templates"
-          lando ssh -s mariadb -u root -c "rm -fv /etc/platform/templates/my.cnf"
-          lando ssh -s mariadb -u root -c "ls -lsa /etc/platform/templates"
-          lando ssh -s mariadb -u root -c "cp -fv /run/.configs/etc/platform/templates/my.cnf /etc/platform/templates/my.cnf"
-          lando ssh -s mariadb -u root -c "chown app:app /etc/platform/templates/my.cnf"
-          lando ssh -s mariadb -u root -c "ls -lsa /etc/platform/templates"
-          lando ssh -s mariadb -u root -c "/etc/service/mysql-standalone/run" || true
-          lando ssh -s mariadb -u root -c "ls -lsa /mnt/data/mysql"
-          # docker ps -a
-          # lando logs
-          # sleep 100
-          # lando ssh -s mariadb -u root -c "ps axf"
-          # lando ssh -s mariadb -u root -c "/etc/service/mysql-standalone/run"
-          # lando mariadb main -e "show tables;"
+          lando ssh -s mariadb -u root -c "ps axf"
+          lando ssh -s mariadb -u root -c "/helpers/psh-mysql-helper.sh"
+          lando mariadb main -e "show tables;"
 
       # This block should eventually become use lando/actions-leia@v2
       # - name: Generate tests
