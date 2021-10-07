@@ -68,8 +68,9 @@ jobs:
           lando start -vvv
           docker ps -a
           lando logs
-          lando ssh -s mariadb -u root -c "ps axf"
           sleep 100
+          lando ssh -s mariadb -u root -c "ps axf"
+          lando ssh -s mariadb -u root -c "/etc/service/mysql-standalone/run"
           lando mariadb main -e "show tables;"
 
       # This block should eventually become use lando/actions-leia@v2
