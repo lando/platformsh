@@ -2,10 +2,8 @@
 set -e
 exec 2>&1
 
-chown app:app /run/.configs/etc/platform/templates/my.cnf
-chmod 0444 /run/.configs/etc/platform/templates/my.cnf
-id
-cat /etc/passwd
+ls -lsa /etc/apparmor.d || true
+cat /etc/apparmor.d/usr.sbin.mysqld
 
 if [ ! -f /mnt/data/.mysql-ready ]; then
     echo "database install"

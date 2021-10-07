@@ -60,13 +60,10 @@ jobs:
       # It would be SO COOL to run tests against both STABLE and EDGE with failures allowed on EDGE?
       - name: Verify Lando works as we expect
         run: |
-          sudo apt-get --yes purge mysql-server mysql-client || true
-          sudo apt-get --yes autoremove --purge  || true
-          sudo apt-get autoclean  || true
-          sudo deluser --remove-home mysql  || true
-          sudo delgroup mysql  || true
-          sudo rm -rf /etc/apparmor.d/abstractions/mysql /etc/apparmor.d/cache/usr.sbin.mysqld /etc/mysql /var/lib/mysql /var/log/mysql* /var/log/upstart/mysql.log* /var/run/mysqld  || true
-          sudo updatedb  || true
+          sudo apt-get remove mysql-server --purge
+          sudo apt-get install apparmor-profiles
+          sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
+          ls -lsa /etc/apparmor.d
 
           lando version
           lando config
