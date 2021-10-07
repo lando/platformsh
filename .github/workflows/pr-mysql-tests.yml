@@ -60,6 +60,14 @@ jobs:
       # It would be SO COOL to run tests against both STABLE and EDGE with failures allowed on EDGE?
       - name: Verify Lando works as we expect
         run: |
+          sudo apt-get --yes purge mysql-server mysql-client || true
+          sudo apt-get --yes autoremove --purge  || true
+          sudo apt-get autoclean  || true
+          sudo deluser --remove-home mysql  || true
+          sudo delgroup mysql  || true
+          sudo rm -rf /etc/apparmor.d/abstractions/mysql /etc/apparmor.d/cache/usr.sbin.mysqld /etc/mysql /var/lib/mysql /var/log/mysql* /var/log/upstart/mysql.log* /var/run/mysqld  || true
+          sudo updatedb  || true
+
           lando version
           lando config
           cd examples/mariadb
@@ -69,8 +77,10 @@ jobs:
           docker inspect landoplatformshmysql_mariadb_1
           lando ssh -s mariadb -u root -c "cat /etc/platform/templates/my.cnf"
           lando ssh -s mariadb -u root -c "ls -lsa /etc/platform/templates"
-          lando ssh -s mariadb -u root -c "ls -lsa /run/.configs/etc/platform/templates"
-          lando ssh -s mariadb -u root -c "chown -Rv app:app /run/.configs/etc/platform/templates"
+          lando ssh -s mariadb -u root -c "ls -lsa /run/.configs/etc/platform/templates/my.cnf"
+          # lando ssh -s mariadb -u root -c "chown -Rv app:app /run/.configs/etc/platform/templates"
+          lando ssh -s mariadb -u root -c "rm -f /etc/platform/templates/my.cnf"
+          lando ssh -s mariadb -u root -c "cp -f /run/.configs/etc/platform/templates/my.cnf /etc/platform/templates/my.cnf"
           lando ssh -s mariadb -u root -c "/etc/service/mysql-standalone/run" || true
           lando ssh -s mariadb -u root -c "ls -lsa /mnt/data/mysql"
           # docker ps -a
