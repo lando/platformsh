@@ -3,7 +3,7 @@ set -e
 exec 2>&1
 
 chown app:app /run/.configs/etc/platform/templates/my.cnf
-chmod 644 /run/.configs/etc/platform/templates/my.cnf
+chmod 777 /run/.configs/etc/platform/templates/my.cnf
 id
 cat /etc/passwd
 
@@ -13,22 +13,7 @@ if [ ! -f /mnt/data/.mysql-ready ]; then
           --defaults-file=/etc/platform/templates/my.cnf \
           --datadir=/mnt/data/mysql \
           --force \
-          --skip-name-resolve || true
-
-    chpst -u app:app mysql_install_db \
-          # --defaults-file=/etc/platform/templates/my.cnf \
-          --datadir=/mnt/data/mysql \
-          --force \
-          --skip-name-resolve || true
-
-    chpst -u app:app mysql_install_db \
-          # --defaults-file=/etc/platform/templates/my.cnf \
-          --no-defaults \
-          --datadir=/mnt/data/mysql \
-          --force \
           --skip-name-resolve
-
-
      touch /mnt/data/.mysql-ready
 else
     # In case of UID instability, and to provide an upgrade path to the app user
