@@ -75,12 +75,13 @@ jobs:
           lando config
           lando start -vvv
           docker inspect landoplatformshmysql_mariadb_1
-          lando ssh -s mariadb -u root -c "cat /etc/platform/templates/my.cnf"
           lando ssh -s mariadb -u root -c "ls -lsa /etc/platform/templates"
-          lando ssh -s mariadb -u root -c "ls -lsa /run/.configs/etc/platform/templates/my.cnf"
-          # lando ssh -s mariadb -u root -c "chown -Rv app:app /run/.configs/etc/platform/templates"
-          lando ssh -s mariadb -u root -c "rm -f /etc/platform/templates/my.cnf"
-          lando ssh -s mariadb -u root -c "cp -f /run/.configs/etc/platform/templates/my.cnf /etc/platform/templates/my.cnf"
+          lando ssh -s mariadb -u root -c "ls -lsa /run/.configs/etc/platform/templates"
+          lando ssh -s mariadb -u root -c "rm -fv /etc/platform/templates/my.cnf"
+          lando ssh -s mariadb -u root -c "ls -lsa /etc/platform/templates"
+          lando ssh -s mariadb -u root -c "cp -fv /run/.configs/etc/platform/templates/my.cnf /etc/platform/templates/my.cnf"
+          lando ssh -s mariadb -u root -c "ls -lsa /etc/platform/templates"
+          lando ssh -s mariadb -u root -c "ls -lsa /run/.configs/etc/platform/templates"
           lando ssh -s mariadb -u root -c "/etc/service/mysql-standalone/run" || true
           lando ssh -s mariadb -u root -c "ls -lsa /mnt/data/mysql"
           # docker ps -a
