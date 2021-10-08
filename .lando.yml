@@ -1,0 +1,21 @@
+# test
+name: lando-cli
+env_file:
+  - lando.env
+excludes:
+  - node_modules
+services:
+  cli:
+    type: node:12
+    build:
+      - yarn install
+    scanner: false
+    ssl: false
+    sslExpose: false
+tooling:
+  node:
+    service: cli
+  vuepress:
+    service: cli
+  yarn:
+    service: cli
