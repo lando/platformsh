@@ -1,0 +1,24 @@
+# We don't need this because its in the package.json
+# but we set it anyway just to make sure we know what is what
+name: "@lando/platformsh"
+
+# These are things for V3 of the runtime
+legacy:
+  app: app.js
+  path: index.js
+  recipes: recipes
+  scripts: scripts
+  services: services
+  types: types
+
+# Here are some alternate configurations for legacy plugins stuff
+
+# Let lando autoscan for all legacy things
+legacy: true
+
+# Explicitly set particular services as applicable
+legacy:
+  app: app.js
+  path: index.js
+  recipes:
+    platformsh:
