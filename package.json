@@ -40,11 +40,7 @@
     "generate:tests": "leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
     "lint": "eslint --quiet --no-ignore .",
     "release": "bump --prompt --tag --all --push",
-<<<<<<< HEAD
-    "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js experimental/**/test/*.spec.js integrations/**/test/*.spec.js plugins/**/test/**/*.spec.js",
-=======
     "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js",
->>>>>>> 1a7d3b20258eb9780724399055e8aa4fde02ed15
     "test:functional": "mocha --timeout 900000 test/**/*.func.js",
     "test": "yarn lint && yarn test:unit"
   },
@@ -58,11 +54,7 @@
     "chai": "^4.3.4",
     "command-line-test": "^1.0.10",
     "eslint": "^7.32.0",
-<<<<<<< HEAD
-    "eslint-config-google": "^0.14.0",
-=======
     "eslint-config-google": "^0.9.1",
->>>>>>> 1a7d3b20258eb9780724399055e8aa4fde02ed15
     "leia-parser": "^0.4.0",
     "mocha": "^9.1.2",
     "nyc": "^15.1.0",
