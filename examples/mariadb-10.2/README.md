@@ -1,9 +1,9 @@
-Platform.sh MariaDB Example
-===========================
+Platform.sh MariaDB 10.2 Example
+================================
 
-This example exists to test this plugin's implementation of Platform.sh's `mariadb` service.
+This example exists to test this plugin's implementation of Platform.sh's `mariadb:10.2` service.
 
-* [Platform.sh MariaDB](https://docs.platform.sh/configuration/services/mysql.html)
+* [Platform.sh MariaDB 10.2](https://docs.platform.sh/configuration/services/mysql.html)
 
 Start up tests
 --------------

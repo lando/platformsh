@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - platform-sh-maria-db-example
+          - platform-sh-maria-db-10-2-example
         lando-versions:
           - edge
         os:
