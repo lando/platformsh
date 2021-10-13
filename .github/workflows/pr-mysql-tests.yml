@@ -11,7 +11,10 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - platform-sh-maria-db-10-2-example
+          # - test: platform-sh-maria-db-10-1-example
+          #   source: examples/mariadb-10.2
+          - test: platform-sh-maria-db-10-2-example
+            source: examples/mariadb-10.2
         lando-versions:
           - edge
         os:
@@ -56,15 +59,12 @@ jobs:
           mkdir -p ~/.lando/cache
           cp -f test-config.yml ~/.lando/config.yml
           echo false > ~/.lando/cache/report_errors
-      - name: Verify Lando works and is configured correctly?
+      - name: Verify Lando works and we are dogfooding this plugin for tests
         run: |
-          # Is it the correct verison?
           lando version
-          # Verify legacy platformsh recipe is not loading
-          lando config --path recipes | grep platformsh || echo "$?" | grep 1
-          # Verify our examples dogfood themselves
-          cd examples/mariadb
-          lando config --path recipes | grep platformsh
+          lando config --path plugins
+          cd ${{ matrix.leia-tests.source }}
+          lando config --path plugins
 
       # This block should eventually become use lando/actions-leia@v2
       # @NOTE? Do we want a way for our leia-action to configure apparmor since
@@ -79,4 +79,4 @@ jobs:
       - name: Generate tests
         run: yarn generate:tests
       - name: Run ${{ matrix.leia-tests }} tests
-        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}.func.js
+        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests.test }}.func.js
