@@ -1,4 +1,4 @@
-name: lando-platformsh-mysql-10.2
+name: lando-platformsh-mariadb-10.2
 recipe: platformsh
 config:
   id: DISCONNECTED
