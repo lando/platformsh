@@ -2,6 +2,7 @@ vendor
 files
 data
 private
+.platform/local
 
 *.sql
 *.tar.gz

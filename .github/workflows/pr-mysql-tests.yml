@@ -11,7 +11,12 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - platform-sh-maria-db-example
+          # - test: platform-sh-maria-db-10-1-example
+          #   source: examples/mariadb-10.2
+          - test: platform-sh-maria-db-10-2-example
+            source: examples/mariadb-10.2
+          # - test: platform-sh-maria-db-10-3-example
+          #   source: examples/mariadb-10.3
         lando-versions:
           - edge
         os:
@@ -56,20 +61,17 @@ jobs:
           mkdir -p ~/.lando/cache
           cp -f test-config.yml ~/.lando/config.yml
           echo false > ~/.lando/cache/report_errors
-      - name: Verify Lando works and is configured correctly?
+      - name: Verify Lando works and we are dogfooding this plugin for tests
         run: |
-          # Is it the correct verison?
           lando version
-          # Verify legacy platformsh recipe is not loading
-          lando config --path recipes | grep platformsh || echo "$?" | grep 1
-          # Verify our examples dogfood themselves
-          cd examples/mariadb
-          lando config --path recipes | grep platformsh
+          lando config --path plugins | grep platformsh | grep dir | grep /snapshot/cli/node_modules/@lando/platformsh
+          cd ${{ matrix.leia-tests.source }}
+          lando config --path plugins | grep platformsh | grep dir | grep /home/runner/work/platformsh/platformsh
 
       # This block should eventually become use lando/actions-leia@v2
       # @NOTE? Do we want a way for our leia-action to configure apparmor since
       # this might break a whole bunch of tests? or is this literally just a thing
-      # for the platform.sh mysql/mariadb container
+      # for the platform.sh mysql/mariadb container?
       - name: Configure apparmor
         run: |
           set -x
@@ -78,5 +80,5 @@ jobs:
           sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
       - name: Generate tests
         run: yarn generate:tests
-      - name: Run ${{ matrix.leia-tests }} tests
-        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests }}.func.js
+      - name: Run ${{ matrix.leia-tests.test }} tests
+        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests.test }}.func.js
