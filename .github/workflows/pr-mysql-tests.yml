@@ -64,9 +64,9 @@ jobs:
       - name: Verify Lando works and we are dogfooding this plugin for tests
         run: |
           lando version
-          lando config --path plugins
+          lando config --path plugins | grep platformsh | grep dir | grep /snapshot/cli/node_modules/@lando/platformsh
           cd ${{ matrix.leia-tests.source }}
-          lando config --path plugins
+          lando config --path plugins | grep platformsh | grep dir | grep /home/runner/work/platformsh/platformsh
 
       # This block should eventually become use lando/actions-leia@v2
       # @NOTE? Do we want a way for our leia-action to configure apparmor since
@@ -80,5 +80,5 @@ jobs:
           sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
       - name: Generate tests
         run: yarn generate:tests
-      - name: Run ${{ matrix.leia-tests }} tests
+      - name: Run ${{ matrix.leia-tests.test }} tests
         run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests.test }}.func.js
