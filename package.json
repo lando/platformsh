@@ -37,11 +37,11 @@
   },
   "scripts": {
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "generate:tests": "leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --split-file --spawn --stdin",
+    "generate:tests": "leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --spawn --stdin --output-extension leia.js",
     "lint": "eslint --quiet --no-ignore .",
     "release": "bump --prompt --tag --all --push",
     "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js",
-    "test:functional": "mocha --timeout 900000 test/**/*.func.js",
+    "test:leia": "mocha --timeout 900000 test/**/*.leia.js",
     "test": "yarn lint && yarn test:unit"
   },
   "dependencies": {

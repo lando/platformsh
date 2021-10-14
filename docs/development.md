@@ -115,7 +115,7 @@ We recommend reviewing the [known issues and caveats](https://github.com/lando/p
 
 ## Testing
 
-Its best to familiarize yourself with how Lando [does testing](https://docs.lando.dev/contrib/contrib-testing.html) in general before proceeding.
+It's best to familiarize yourself with how Lando [does testing](https://docs.lando.dev/contrib/contrib-testing.html) in general before proceeding.
 
 ### Unit Tests
 
@@ -129,6 +129,8 @@ Generally, unit testable code should be placed in `lib` and then the associated 
     |-- stuff.spec.js
 ```
 
+And then you can run the tests with the below.
+
 ```bash
 # Run unit tests
 yarn test:unit
@@ -136,27 +138,70 @@ yarn test:unit
 
 ### Leia Tests
 
-Func tests are made by just adding more entries to each examples README. This uses our made-just-for-Lando testing framework [Leia](https://github.com/lando/leia). See below for our current platform.sh tests:
+We do end to end testing with our made-just-for-Lando testing framework [Leia](https://github.com/lando/leia). Leia allows us to define tests as a series of commented shell commands in human readable markdown files. Here is a simple example:
 
-* [Drupal 8](https://github.com/lando/lando/tree/master/examples/platformsh-drupal8)
-* [Kitchen Sink](https://github.com/lando/lando/tree/master/examples/platformsh-kitchensink)
+```md
+Start up tests
+--------------
 
-These are then run by CircleCI. While you _can_ run all the func test locally this can take a LONG time. If you decide you want to do that we recommend you generate the test files and then invoke the tests for just one example.
+# Should start up successfully
+lando start
+
+Verification commands
+---------------------
+
+# Should be able to connect to all mariadb relationships
+lando mariadb main -e "show tables;"
+
+Destroy tests
+-------------
+
+# Should be able to destroy our app
+lando destroy -y
+```
+
+Note that the headers here are important and are defined in our `yarn generate:tests` script. The "Start up tests" header specifies things that should run before the main series of tests. "Verification commands" is the main body of tests and is required. "Destroy tests" specifies any needed clean up commands to run.
+
+If you check out the various READMEs in our [examples](https://github.com/lando/platformsh/tree/main/examples) you will notice that they are all Leia tests.
+
+Before running all or some of the tests you will need to generate them.
 
 ```bash
 # Generate tests
-yarn generate-tests
+yarn generate:tests
 
-# Run a single examples tests
-yarn mocha --timeout 900000 test/platform-sh-drupal-8-example.func.js
+# Run ALL the tests, this will likely take a long time
+yarn test:leia
+
+# Run the tests for a single example
+yarn mocha --timeout 900000 test/platform-sh-maria-db-10-2-example.leia.js
 ```
+
+If you've created new testable examples then you will also need to let GitHub Actions know so they can run on pull requests.
+
+To do that you will either want to add the tests to an existing workflow that makes sense or create a new workflow. If you are creating a new workflow you should just copy an existing one and modify the filename and `name` key to something that makes sense.
+
+To add the new tests to the workflow just modify `jobs.leia-tests.strategy.matrix.leia-tests` with the new tests.
+
+```yaml
+jobs:
+  leia-tests:
+    strategy:
+      matrix:
+        leia-tests:
+            # This should be the filename, without .leia.js extension in the test directory
+            # NOTE that you will need to run yarn generate:tests to see these
+          - test: platform-sh-maria-db-10-1-example
+            # This should be the directory that the test was generated from
+            source: examples/mariadb-10.2
+          - test: platform-sh-maria-db-10-2-example
+            source: examples/mariadb-10.2
+```
+
+Now open a pull request and the new tests should run!
+
+For a deeper dive on Leia you can go [here](https://github.com/lando/leia).
 
 ## Contribution
 
-WIP but outline is
-
-1. GitHub flow as normal eg branch for an issue -> PR -> merge
-2. Lets review all platformsh PRs together for awhile: this should keep us on the same page and also force knowledge transfer
-3. Lets definitely be updating the user docs/dev docs
-4. Once we have the d8 and kitchen sink example func tests lets also be adding tests on every commit
-5. Lets wait on unit tests until things settle down a bit but a good rule of thumb is try to put things we would want to unit tests in `lib` somewhere.
+If you want to contribute code then just follow [this flow](https://guides.github.com/introduction/flow/).
