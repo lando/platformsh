@@ -12,7 +12,9 @@ Of course, once a user is running their Platform.sh project with Lando they can 
 
 ## Installation
 
-This plugin is included with Lando by default. That means if you have Lando version `3.0.8` or higher then this plugin is already installed! However if you would like to manually install the plugin for whatever reason you can follow the below:
+This plugin is included with Lando by default. That means if you have Lando version `3.0.8` or higher then this plugin is already installed!
+
+However if you would like to manually install the plugin for whatever reason you can follow the below:
 
 ```bash
 # Ensure you have a global plugins directory
@@ -29,15 +31,65 @@ docker run --rm -it -v ${HOME}/.lando/plugins:/plugins -w /tmp node:14-alpine sh
 lando --clear
 ```
 
-You can verify the plugin is installed with:
-
- this plugin as it is included with Lando by default.
-
-
+You should be able to verify the plugin is installed by running `lando config --path plugins` and checking for `@lando/platformsh`. This command will also show you _where_ the plugin is being loaded from.
 
 ## Basic Usage
 
-For the
+To clone a project down from Platform.sh
+
+```bash
+# Make and go into an empty directory
+mkdir myproject && cd myproject
+
+# Clone down code from Platform.sh
+lando init --source
+
+# Start the project up
+lando start
+
+# Pull down relationships and mounts
+lando pull
+```
+
+Once your project is down you can access [relevant tooling commands](https://github.com/lando/platformsh/blob/main/docs/usage.md#application-tooling).
+
+```bash
+# Run platform cli commands
+lando platform auth:info
+
+# Note that mysql is the name of a relationship defined in .platform.yaml
+# Access relationships directly
+lando mysql main -e "show tables;"
+# Manually importing a database
+lando mysql main < dump.sql
+```
+
+You can [override Platform.sh configuarion](https://github.com/lando/platformsh/blob/main/docs/usage.md#overriding-config) in your Landofile with things that make more sense for development.
+
+```yaml
+name: platformsh-drupal8
+recipe: platformsh
+config:
+  id: PROJECTID
+  overrides:
+    app:
+      variables:
+        env:
+          APP_ENV: dev
+        d8settings:
+          skip_permissions_hardening: 1
+    db:
+      configuration:
+        properties:
+          max_allowed_packet: 63
+```
+
+For complete usage docs you should check out [this](https://github.com/lando/platformsh/blob/main/docs/usage.md), particularly:
+
+* [Supported Services](https://github.com/lando/platformsh/blob/main/docs/usage.md#services-yaml)
+* [Environment variables](https://github.com/lando/platformsh/blob/main/docs/usage.md#environment)
+* [Syncing relationships and mounts with Platform.sh](https://github.com/lando/platformsh/blob/main/docs/usage.md#pulling-and-pushing-relationships-and-mounts)
+* [Caveats and known issues](https://github.com/lando/platformsh/blob/main/docs/usage.md#caveats-and-known-issues)
 
 ## Development
 
