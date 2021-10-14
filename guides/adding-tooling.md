@@ -6,7 +6,7 @@ date: 2019-11-05
 
 # SQL Export
 
-<GuideHeader test="https://circleci.com/gh/lando/lando/tree/master"/>
+<GuideHeader test="https://github.com/lando/platformsh/actions"/>
 
 Lando ships with a helper `db-export` script that is available in all our `LAMP` and `LEMP` based recipes. Used in the recipe context it should export a database dump `DATABASE.TIMESTAMP.gz` into the `/app` directory.
 
@@ -71,5 +71,5 @@ tooling:
 
 <RelatedGuides tag="Platform.sh"/>
 
-<GuideFooter test="https://circleci.com/gh/lando/lando/tree/master" repo="https://github.com/lando/cli/tree/main/examples/sql-export" />
+<GuideFooter test="https://github.com/lando/platformsh/actions" repo="https://github.com/lando/platformsh/blob/main/examples/adding-tooling" />
 <Newsletter />

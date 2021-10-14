@@ -86,7 +86,7 @@ A `platform-service` means it something that goes in the `services.yaml`
 If you want to add support for a new platform service or application container simply add a new one into the `services` folder and make sure you set the `parent` to either `_platformsh_service` or `_platformsh_appserver` as appropriate.
 
 Also note that you will likely need to add it to `getLandoServiceType` which maps a `platform` `type `to a `lando` `type`.
-https://github.com/lando/lando/blob/abf0648701b960e49f09bf9e569c83aca727666a/experimental/plugins/lando-platformsh/lib/services.js#L8
+See https://github.com/lando/platformsh/blob/main/lib/services.js#L9 for `getLandoServiceType`.
 
 ### SSH
 
@@ -160,7 +160,7 @@ Destroy tests
 lando destroy -y
 ```
 
-Note that the headers here are important and are defined in our `yarn generate:tests` script. The "Start up tests" header specifies things that should run before the main series of tests. "Verification commands" is the main body of tests and is required. "Destroy tests" specifies any needed clean up commands to run.
+Note that the headers here are important and are defined in our `yarn generate:tests` script. The _Start up tests_ header specifies things that should run before the main series of tests. _Verification commands_ is the main body of tests and is required. _Destroy tests_ specifies any needed clean up commands to run.
 
 If you check out the various READMEs in our [examples](https://github.com/lando/platformsh/tree/main/examples) you will notice that they are all Leia tests.
 
