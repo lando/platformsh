@@ -104,7 +104,11 @@ If you are interested in working and tested examples and/or guides then check ou
 
 ## Issues, Questions and Support
 
-This repo
+If you have a question or would like some community support we recommend you [join us on Slack](https://launchpass.com/devwithlando). If you'd like to report a bug or submit a feature request then please [use the issue queue](https://github.com/lando/platformsh/issues) in this repo.
+
+If you would like to report a bug
+
+https://launchpass.com/devwithlando
 
 ## Changelog
 
