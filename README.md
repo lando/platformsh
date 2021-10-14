@@ -104,17 +104,17 @@ If you are interested in working and tested examples and/or guides then check ou
 
 ## Issues, Questions and Support
 
-If you have a question or would like some community support we recommend you [join us on Slack](https://launchpass.com/devwithlando). If you'd like to report a bug or submit a feature request then please [use the issue queue](https://github.com/lando/platformsh/issues) in this repo.
+If you have a question or would like some community support we recommend you [join us on Slack](https://launchpass.com/devwithlando).
 
-If you would like to report a bug
-
-https://launchpass.com/devwithlando
+If you'd like to report a bug or submit a feature request then please [use the issue queue](https://github.com/lando/platformsh/issues/new/choose) in this repo.
 
 ## Changelog
 
-https://github.com/lando/platformsh/blob/main/CHANGELOG.md
+We try to log all changes big and small in both [THE CHANGELOG](https://github.com/lando/platformsh/blob/main/CHANGELOG.md) and the [release notes](https://github.com/lando/platformsh/releases).
 
 ## Development
+
+If you're interested in working on this plugin then we recommend you check out the [development guide](https://github.com/lando/platformsh/blob/main/docs/development.md).
 
 ## Contributors
 
