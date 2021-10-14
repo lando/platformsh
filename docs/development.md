@@ -6,7 +6,7 @@ This guide contains information to help onboard developers to work on the [Platf
 
 At the very least you will need to have the following installed:
 
-* [Lando](https://docs.lando.dev/basics/installation.html), preferably installed [from source](https://docs.lando.dev/basics/installation.html#from-source).
+* [Lando 3.5.0+](https://docs.lando.dev/basics/installation.html), preferably installed [from source](https://docs.lando.dev/basics/installation.html#from-source).
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 While not a hard requirement it's also probably a good idea to install both `node` 14 and `yarn`
@@ -29,9 +29,20 @@ yarn
 
 ## Working
 
-This plugin contains various working and tested Lando apps in the [examples](https://github.com/lando/platformsh/tree/main/examples) folder.
+This plugin contains various working and tested Lando apps in the [examples](https://github.com/lando/platformsh/tree/main/examples) folder. You should use these or create new ones to help with plugin development.
 
-Whether you are working off an existing example or a new one you've created you should make sure that you are updating or adding new tests as you go. See [leia testing](#leia-tests) below for more detail.
+Note that each one of these examples contains the following section in its Landofile.
+
+```yaml
+plugins:
+  "@lando/platformsh": ./../../
+```
+
+This tells Lando that _this_ app should use the source version of the `@lando/platformsh` plugin you cloned down in the installation. This is useful because it allows you to isolate development within this repo without interferring with any other apps using the stable and global version of the plugin.
+
+This means that you should _almost always_ develop against apps in the `examples` folder and that those apps should _always_ contain the above `plugins` config.
+
+Whether you are working off an existing example or a new one you should make sure that you are updating or adding new tests as you go. See [leia testing](#leia-tests) below for more detail.
 
 ## Project Structure
 
@@ -52,19 +63,23 @@ This plugin follows the same structure as any [Lando plugin](https://docs.lando.
 
 ## Important things
 
+Here are some things that deviate from Lando-normal that you should be aware of.
+
 ### Container lifecycle
 
-### /run/config.json
+Platform.sh uses a more complex container lifecycle than Lando. That lifecycle is detailed [here](https://github.com/lando/platformsh/blob/main/docs/lifecycle.md).
 
-Most of the platform.sh magic comes from a configuration file located in every service at `/run/config.json`. Lando generates and injects this file into each platform.sh container.
+### Runtime configuration
 
-It is constructed by combined the platform.sh configuration files eg `.platform.app.yaml`, `services.yaml` etc and some extra things.
+Most of the Platform.sh magic comes from a configuration file located in every service at `/run/config.json`. Lando generates and injects this file into each container.
 
-## Services and Types
+It is constructed by combining the Platform.sh configuration files eg `.platform.app.yaml`, `services.yaml` etc and some extra things.
+
+### Services and Types
 
 Inside of the `services` folder you will see where we define the Lando service that corresponds to each platform application container and service. Each service can either be a `platform-appserver` or a `plaform-service` and each of these are defined in the `types` folder.
 
-A `platform-appserver` means it is an applicaton container eg a supported platform "langauge" eg a `type` you can define in a `.platform.app.yaml` file.
+A `platform-appserver` means it is an applicaton container eg a supported Platform.sh "langauge" eg a `type` you can define in a `.platform.app.yaml` file.
 
 A `platform-service` means it something that goes in the `services.yaml`
 
@@ -73,7 +88,7 @@ If you want to add support for a new platform service or application container s
 Also note that you will likely need to add it to `getLandoServiceType` which maps a `platform` `type `to a `lando` `type`.
 https://github.com/lando/lando/blob/abf0648701b960e49f09bf9e569c83aca727666a/experimental/plugins/lando-platformsh/lib/services.js#L8
 
-### `lando ssh`
+### SSH
 
 In `index.js` you will see that `lando` is overriding the core `lando ssh` command. This serves two main purposes:
 
@@ -84,7 +99,7 @@ In `index.js` you will see that `lando` is overriding the core `lando ssh` comma
 
 ### Application tooling
 
-Similarly in `index.js` all tooling commands are prefixed by `/helpers/psh-exec.sh`. This is
+Similarly in `index.js` all tooling commands are prefixed by `/helpers/psh-exec.sh`.
 
 ### Troubleshooting Python Source in Platform.sh Containers
 
@@ -106,7 +121,6 @@ Its best to familiarize yourself with how Lando [does testing](https://docs.land
 
 Generally, unit testable code should be placed in `lib` and then the associated test in `tests` in the form `FILE-BEING-TESTED.spec.js`. Here is an example:
 
-
 ```bash
 ./
 |-- lib
@@ -115,7 +129,10 @@ Generally, unit testable code should be placed in `lib` and then the associated 
     |-- stuff.spec.js
 ```
 
-These tests can then be run with `yarn test:unit`.
+```bash
+# Run unit tests
+yarn test:unit
+```
 
 ### Leia Tests
 
