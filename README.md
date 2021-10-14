@@ -35,7 +35,7 @@ You should be able to verify the plugin is installed by running `lando config --
 
 ## Basic Usage
 
-To clone a project down from Platform.sh
+Clone a project down from Platform.sh.
 
 ```bash
 # Make and go into an empty directory
@@ -51,7 +51,7 @@ lando start
 lando pull
 ```
 
-Once your project is down you can access [relevant tooling commands](https://github.com/lando/platformsh/blob/main/docs/usage.md#application-tooling).
+Once your project is running you can access [relevant tooling commands](https://github.com/lando/platformsh/blob/main/docs/usage.md#application-tooling).
 
 ```bash
 # Run platform cli commands
@@ -64,7 +64,7 @@ lando mysql main -e "show tables;"
 lando mysql main < dump.sql
 ```
 
-You can [override Platform.sh configuarion](https://github.com/lando/platformsh/blob/main/docs/usage.md#overriding-config) in your Landofile with things that make more sense for development.
+You can also [override Platform.sh configuarion](https://github.com/lando/platformsh/blob/main/docs/usage.md#overriding-config) in your Landofile with things that make more sense for development.
 
 ```yaml
 name: platformsh-drupal8

@@ -66,7 +66,7 @@ jobs:
           lando version
           lando config --path plugins | grep platformsh | grep dir | grep /snapshot/cli/node_modules/@lando/platformsh
           cd ${{ matrix.leia-tests.source }}
-          lando config --path plugins | grep platformsh | grep dir | grep /home/runner/work/platformsh/platformsh
+          lando config --path plugins | grep platformsh | grep dir | grep /home/runner/work/platformsh/platformsh || echo "::error:: Not dogfooding this plugin correctly! "
 
       # This block should eventually become use lando/actions-leia@v2
       # @NOTE? Do we want a way for our leia-action to configure apparmor since
