@@ -91,12 +91,36 @@ For complete usage docs you should check out [this](https://github.com/lando/pla
 * [Syncing relationships and mounts with Platform.sh](https://github.com/lando/platformsh/blob/main/docs/usage.md#pulling-and-pushing-relationships-and-mounts)
 * [Caveats and known issues](https://github.com/lando/platformsh/blob/main/docs/usage.md#caveats-and-known-issues)
 
+## Examples and Guides
+
+If you are interested in working and tested examples and/or guides then check out both the [examples](https://github.com/lando/platformsh/tree/main/examples) and [guides](https://github.com/lando/platformsh/tree/main/guides) folders. Here is a subset of some of our most popular content:
+
+* [Multiapp project example]()
+* [Adding additional tooling]()
+* [Advanced database usage]()
+* [Kitchen sink example]()
+
+@TODO: need to link to the above when they are available
+
+## Issues, Questions and Support
+
+This repo
+
+## Changelog
+
+https://github.com/lando/platformsh/blob/main/CHANGELOG.md
+
 ## Development
 
-## Other things?
+## Contributors
 
-* Advice
-* CHANGELOG
-* LICENSE
-* examples
-* guides
+<a href="https://github.com/lando/platformsh/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=lando/platformsh" />
+</a>
+
+Made with [contributors-img](https://contrib.rocks).
+
+## Other Selected Resources
+
+* [LICENSE](https://github.com/lando/platformsh/blob/main/LICENSE.md)
+* [The best professional advice ever](https://www.youtube.com/watch?v=tkBVDh7my9Q)
