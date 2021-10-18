@@ -11,12 +11,16 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          # - test: platform-sh-maria-db-10-1-example
-          #   source: examples/mariadb-10.2
+          - test: platform-sh-maria-db-10-1-example
+            source: examples/mariadb-10.2
           - test: platform-sh-maria-db-10-2-example
             source: examples/mariadb-10.2
-          # - test: platform-sh-maria-db-10-3-example
-          #   source: examples/mariadb-10.3
+          - test: platform-sh-maria-db-10-3-example
+            source: examples/mariadb-10.3
+          - test: platform-sh-maria-db-10-4-example
+            source: examples/mariadb-10.4
+          - test: platform-sh-maria-db-10-5-example
+            source: examples/mariadb-10.5
         lando-versions:
           - edge
         os:
