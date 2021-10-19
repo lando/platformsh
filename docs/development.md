@@ -174,7 +174,7 @@ yarn generate:tests
 yarn test:leia
 
 # Run the tests for a single example
-yarn mocha --timeout 900000 test/platform-sh-maria-db-10-2-example.leia.js
+yarn leia examples/mariadb-10.2/README.md -c 'Destroy tests'
 ```
 
 If you've created new testable examples then you will also need to let GitHub Actions know so they can run on pull requests.

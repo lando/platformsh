@@ -11,16 +11,11 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - test: platform-sh-maria-db-10-1-example
-            source: examples/mariadb-10.2
-          - test: platform-sh-maria-db-10-2-example
-            source: examples/mariadb-10.2
-          - test: platform-sh-maria-db-10-3-example
-            source: examples/mariadb-10.3
-          - test: platform-sh-maria-db-10-4-example
-            source: examples/mariadb-10.4
-          - test: platform-sh-maria-db-10-5-example
-            source: examples/mariadb-10.5
+          - examples/mariadb-10.1
+          - examples/mariadb-10.2
+          - examples/mariadb-10.3
+          - examples/mariadb-10.4
+          - examples/mariadb-10.5
         lando-versions:
           - edge
         os:
@@ -29,7 +24,6 @@ jobs:
           - '14'
 
     steps:
-
       # Install deps and cache
       # Eventually it would be great if these steps could live in a separate YAML file
       # that could be included in line to avoid code duplication
@@ -69,7 +63,7 @@ jobs:
         run: |
           lando version
           lando config --path plugins | grep platformsh | grep dir | grep /snapshot/cli/node_modules/@lando/platformsh
-          cd ${{ matrix.leia-tests.source }}
+          cd ${{ matrix.leia-tests }}
           lando config --path plugins | grep platformsh | grep dir | grep /home/runner/work/platformsh/platformsh || echo "::error:: Not dogfooding this plugin correctly! "
 
       # This block should eventually become use lando/actions-leia@v2
@@ -82,7 +76,7 @@ jobs:
           sudo apt-get remove mysql-server --purge
           sudo apt-get install apparmor-profiles
           sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
-      - name: Generate tests
-        run: yarn generate:tests
-      - name: Run ${{ matrix.leia-tests.test }} tests
-        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests.test }}.leia.js
+      - name: Run leia tests
+        shell: bash
+        run: yarn leia "./${{ matrix.leia-tests }}/README.md" -c 'Destroy tests' --stdin --shell bash
+
