@@ -76,5 +76,5 @@ jobs:
           sudo apt-get install apparmor-profiles
           sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
       - name: Run leia tests
-        run: yarn leia ${{ matrix.leia-tests.source }}/README.md -c 'Destroy tests' --stdin
+        run: yarn leia "./${{ matrix.leia-tests.source }}/README.md" -c 'Destroy tests' --stdin --debug
 
