@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         leia-tests:
+          - examples/mariadb-10.0
           - examples/mariadb-10.1
           - examples/mariadb-10.2
           - examples/mariadb-10.3
