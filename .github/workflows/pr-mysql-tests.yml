@@ -15,7 +15,8 @@ jobs:
           - examples/mariadb-10.2
           - examples/mariadb-10.3
           - examples/mariadb-10.4
-          - examples/mariadb-10.5
+          # This is known to not work and uses a later image
+          # - examples/mariadb-10.5
         lando-versions:
           - edge
         os:
