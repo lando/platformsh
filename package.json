@@ -50,7 +50,7 @@
     "tar": "^6.1.11"
   },
   "devDependencies": {
-    "@lando/leia": "^0.6.2",
+    "@lando/leia": "^0.6.3",
     "chai": "^4.3.4",
     "command-line-test": "^1.0.10",
     "eslint": "^7.32.0",
