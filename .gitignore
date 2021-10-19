@@ -33,7 +33,3 @@ dist
 .nyc_output
 coverage/
 
-# CCI test splitting
-test/split-file.txt
-test/*.func.js
-test/*.leia.js

@@ -11,12 +11,9 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          # - test: platform-sh-maria-db-10-1-example
-          #   source: examples/mariadb-10.2
-          - test: platform-sh-maria-db-10-2-example
-            source: examples/mariadb-10.2
-          # - test: platform-sh-maria-db-10-3-example
-          #   source: examples/mariadb-10.3
+          # - examples/mariadb-10.1
+          - examples/mariadb-10.2
+          # - examples/mariadb-10.3
         lando-versions:
           - edge
         os:
@@ -78,7 +75,6 @@ jobs:
           sudo apt-get remove mysql-server --purge
           sudo apt-get install apparmor-profiles
           sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
-      - name: Generate tests
-        run: yarn generate:tests
-      - name: Run ${{ matrix.leia-tests.test }} tests
-        run: yarn mocha --timeout 900000 ./test/${{ matrix.leia-tests.test }}.leia.js
+      - name: Run leia tests
+        run: yarn leia ${{ matrix.leia-tests.source }}/README.md -c 'Destroy tests' --stdin
+

@@ -37,11 +37,10 @@
   },
   "scripts": {
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "generate:tests": "leia \"examples/**/README.md\" test -r 2 -s 'Start up tests' -t 'Verification commands' -c 'Destroy tests' --spawn --stdin --output-extension leia.js",
     "lint": "eslint --quiet --no-ignore .",
     "release": "bump --prompt --tag --all --push",
     "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js",
-    "test:leia": "mocha --timeout 900000 test/**/*.leia.js",
+    "test:leia": "yarn leia \"examples/**/README.md\" -c 'Destroy tests' --stdin",
     "test": "yarn lint && yarn test:unit"
   },
   "dependencies": {
@@ -51,11 +50,11 @@
     "tar": "^6.1.11"
   },
   "devDependencies": {
+    "@lando/leia": "^0.6.0",
     "chai": "^4.3.4",
     "command-line-test": "^1.0.10",
     "eslint": "^7.32.0",
     "eslint-config-google": "^0.9.1",
-    "leia-parser": "^0.4.0",
     "mocha": "^9.1.2",
     "nyc": "^15.1.0",
     "version-bump-prompt": "^4.2.1"
