@@ -134,9 +134,6 @@ lando ssh -c "env" | grep APP_ENV | grep lando
 cd sink/discreet
 lando ssh -c "env" | grep STUFF | grep "omg"
 
-# Should have the redis extension installed
-cd sink/php
-lando php -m | grep redis
 
 # Should be running the correct mariadb version
 cd sink/php
@@ -149,21 +146,6 @@ lando maria main -e "show tables"
 # Should be running mariadb with the correct user
 cd sink/php
 lando ssh -s db -c "id" | grep app
-
-# Should be running the correct memcache version
-cd sink/php
-lando ssh -s memcache -c "memcached -V" | grep 1.6.
-
-# Should be running memcache on the correct port
-docker top landokitchensink_memcache_1 | grep /usr/bin/memcached | grep 11211
-
-# Should be running memcache with the correct user
-cd sink/php
-lando ssh -s memcache -c "id" | grep app
-
-# Should be able to connect to memcache from the application containers
-cd sink/php
-lando ssh -c "curl -I localhost/memcached.php" | grep HTTP/1.1 | grep "200 OK"
 
 # Should be running the correct version of mysql
 cd sink/php
@@ -203,26 +185,6 @@ lando ssh -c "curl -I localhost/postgres.php" | grep HTTP/1.1 | grep "200 OK"
 # Should be running postgres with the correct user
 cd sink/php
 lando ssh -s postgres -c "id" | grep postgres
-
-# Should run the correct version of redis
-cd sink/php
-lando ssh -s redis -c "redis-server --version" | grep v=5.0.
-
-# Should be able to connect to all redis relationships
-cd sink/php
-lando redis ping
-
-# Should have the correct eviction policy
-cd sink/php
-lando ssh -s redis -c "cat /etc/redis/redis.conf" | grep maxmemory-policy | grep noeviction
-
-# Should run redis as the correct user
-cd sink/php
-lando ssh -s redis -c "id" | grep app
-
-# Should be able to connect to redis from the application containers
-cd sink/php
-lando ssh -c "curl -I localhost/redis.php" | grep HTTP/1.1 | grep "200 OK"
 
 # Should run the correct version of elasticsearch
 cd sink/php
