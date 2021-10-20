@@ -1,9 +1,9 @@
 Platform.sh Integration Example
 ===============================
 
-This example exists primarily to test the following documentation:
+This example exists primarily to test `lando init`, `lando start` and `lando pull` for a basic Drupal 8 site.
 
-* [Platform.sh Recipe - Drupal 8](https://docs.lando.dev/config/platformsh.html)
+* [Platform.sh Recipe](https://docs.lando.dev/config/platformsh.html)
 
 Start up tests
 --------------
@@ -16,7 +16,7 @@ lando poweroff
 
 # Should initialize the platformsh lando-d8 example
 rm -rf drupal && mkdir -p drupal && cd drupal
-lando init --source platformsh --platformsh-auth "$PLATFORMSH_CLI_TOKEN" --platformsh-site lando-d8 --platformsh-key-name "$CIRCLE_SHA1"
+lando init --source platformsh --platformsh-auth "$PLATFORMSH_CLI_TOKEN" --platformsh-site lando-d8 --platformsh-key-name "$GITHUB_SHA"
 
 # Should start up our platformsh drupal 8 site successfully
 cd drupal
@@ -74,7 +74,7 @@ lando ssh -c "env" | grep PLATFORM_DIR | grep /app
 lando ssh -c "env" | grep PLATFORM_PROJECT | grep 5su5nuuuwr5xg
 lando ssh -c "env" | grep PLATFORM_APP_COMMAND | grep /usr/sbin/php-fpm
 lando ssh -c "env" | grep PLATFORM_DOCUMENT_ROOT | grep /app/web
-lando ssh -c "env" | grep PLATFORMSH_CLI_TOKEN | grep e_
+lando ssh -c "env" | grep PLATFORMSH_CLI_TOKEN
 lando ssh -c "env" | grep PLATFORMSH_CLI_HOME | grep /var/www
 
 # Should be running services with the correct user
@@ -135,7 +135,7 @@ Run the following commands to trash this app like nothing ever happened.
 # Should be able to remove our platformsh ssh keys
 cp -r remove-keys.sh drupal/remove-keys.sh
 cd drupal
-lando ssh -s appserver -c "/app/remove-keys.sh $CIRCLE_SHA1"
+lando ssh -s appserver -c "/app/remove-keys.sh $GITHUB_SHA"
 cd ..
 rm -rf drupal/remove-keys.sh
 
