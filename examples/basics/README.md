@@ -72,11 +72,41 @@ lando ssh -c "env" | grep PLATFORM_ROUTES
 lando ssh -c "env" | grep PLATFORM_RELATIONSHIPS
 lando ssh -c "env" | grep PLATFORM_PROJECT_ENTROPY
 lando ssh -c "env" | grep PLATFORM_APP_DIR | grep /app
-lando ssh -c "env" | grep PLATFORM_APPLICATION_NAME | grep app
+lando ssh -c "env" | grep PLATFORM_APPLICATION_NAME | grep base
 lando ssh -c "env" | grep PLATFORM_ENVIRONMENT | grep lando
-lando ssh -c "env" | grep PLATFORM_TREE_ID | grep 5su5nuuuwr5xg-app
+lando ssh -c "env" | grep PLATFORM_TREE_ID | grep om2hlkobxcbwe-base
 lando ssh -c "env" | grep PLATFORM_DIR | grep /app
-lando ssh -c "env" | grep PLATFORM_PROJECT | grep 5su5nuuuwr5xg
+lando ssh -c "env" | grep PLATFORM_PROJECT | grep om2hlkobxcbwe
+lando ssh -c "env" | grep PLATFORM_APP_COMMAND | grep /usr/sbin/php-fpm
+lando ssh -c "env" | grep PLATFORM_DOCUMENT_ROOT | grep /app/web
+cd discreet
+lando ssh -c "env" | grep PLATFORM_APPLICATION
+lando ssh -c "env" | grep PLATFORM_BRANCH
+lando ssh -c "env" | grep PLATFORM_VARIABLES
+lando ssh -c "env" | grep PLATFORM_ROUTES
+lando ssh -c "env" | grep PLATFORM_RELATIONSHIPS
+lando ssh -c "env" | grep PLATFORM_PROJECT_ENTROPY
+lando ssh -c "env" | grep PLATFORM_APP_DIR | grep /app
+lando ssh -c "env" | grep PLATFORM_APPLICATION_NAME | grep discreet
+lando ssh -c "env" | grep PLATFORM_ENVIRONMENT | grep lando
+lando ssh -c "env" | grep PLATFORM_TREE_ID | grep om2hlkobxcbwe-discreet
+lando ssh -c "env" | grep PLATFORM_DIR | grep /app
+lando ssh -c "env" | grep PLATFORM_PROJECT | grep om2hlkobxcbwe
+lando ssh -c "env" | grep PLATFORM_APP_COMMAND | grep /usr/sbin/php-fpm
+lando ssh -c "env" | grep PLATFORM_DOCUMENT_ROOT | grep /app/web
+cd ../php
+lando ssh -c "env" | grep PLATFORM_APPLICATION
+lando ssh -c "env" | grep PLATFORM_BRANCH
+lando ssh -c "env" | grep PLATFORM_VARIABLES
+lando ssh -c "env" | grep PLATFORM_ROUTES
+lando ssh -c "env" | grep PLATFORM_RELATIONSHIPS
+lando ssh -c "env" | grep PLATFORM_PROJECT_ENTROPY
+lando ssh -c "env" | grep PLATFORM_APP_DIR | grep /app
+lando ssh -c "env" | grep PLATFORM_APPLICATION_NAME | grep php
+lando ssh -c "env" | grep PLATFORM_ENVIRONMENT | grep lando
+lando ssh -c "env" | grep PLATFORM_TREE_ID | grep om2hlkobxcbwe-php
+lando ssh -c "env" | grep PLATFORM_DIR | grep /app
+lando ssh -c "env" | grep PLATFORM_PROJECT | grep om2hlkobxcbwe
 lando ssh -c "env" | grep PLATFORM_APP_COMMAND | grep /usr/sbin/php-fpm
 lando ssh -c "env" | grep PLATFORM_DOCUMENT_ROOT | grep /app/web
 
