@@ -1,4 +1,4 @@
-name: MySQL/MariaDB Tests
+name: Sync Tests
 
 on:
   pull_request:
@@ -8,16 +8,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm
+      PLATFORMSH_CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}
     strategy:
       matrix:
         leia-tests:
-          - examples/mariadb-10.0
-          - examples/mariadb-10.1
-          - examples/mariadb-10.2
-          - examples/mariadb-10.3
-          - examples/mariadb-10.4
-          # This is known to not work and uses a later image
-          # - examples/mariadb-10.5
+          - examples/drupal8-sync
         lando-versions:
           - edge
         os:
@@ -56,8 +51,6 @@ jobs:
         run: |
           lando version
           lando config --path plugins | grep platformsh | grep /home/runner/work/platformsh/platformsh || echo "::error:: Not dogfooding this plugin correctly! "
-          cd ${{ matrix.leia-tests }}
-          lando config --path plugins | grep platformsh | grep dir | grep /home/runner/work/platformsh/platformsh || echo "::error:: Not dogfooding this plugin correctly! "
 
       # This block should eventually become use lando/actions-leia@v2
       # @NOTE? Do we want a way for our leia-action to configure apparmor since
@@ -72,4 +65,3 @@ jobs:
       - name: Run leia tests
         shell: bash
         run: yarn leia "./${{ matrix.leia-tests }}/README.md" -c 'Destroy tests' --stdin --shell bash
-

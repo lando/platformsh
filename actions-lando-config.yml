@@ -1,0 +1,14 @@
+# Disable the "core" platformsh plugins
+disablePlugins:
+  - lando-platformsh
+
+# Make sure we are dogfooding this plugin for testing purposes
+plugins:
+  "@lando/platformsh": /home/runner/work/platformsh/platformsh
+
+# Disable metrics reporting
+stats:
+  - report: false
+    url: https://metrics.lando.dev
+
+
