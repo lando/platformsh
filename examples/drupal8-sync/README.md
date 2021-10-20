@@ -74,7 +74,7 @@ lando ssh -c "env" | grep PLATFORM_DIR | grep /app
 lando ssh -c "env" | grep PLATFORM_PROJECT | grep 5su5nuuuwr5xg
 lando ssh -c "env" | grep PLATFORM_APP_COMMAND | grep /usr/sbin/php-fpm
 lando ssh -c "env" | grep PLATFORM_DOCUMENT_ROOT | grep /app/web
-lando ssh -c "env" | grep PLATFORMSH_CLI_TOKEN | grep e_
+lando ssh -c "env" | grep PLATFORMSH_CLI_TOKEN
 lando ssh -c "env" | grep PLATFORMSH_CLI_HOME | grep /var/www
 
 # Should be running services with the correct user
