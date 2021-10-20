@@ -51,7 +51,7 @@ jobs:
       - name: Verify Lando works and we are dogfooding this plugin for tests
         run: |
           lando version
-          lando config --path plugins | grep platformsh | grep dir | grep /snapshot/cli/node_modules/@lando/platformsh
+          lando config --path plugins | grep platformsh | grep /home/runner/work/platformsh/platformsh || echo "::error:: Not dogfooding this plugin correctly! "
           cd ${{ matrix.leia-tests }}
           lando config --path plugins | grep platformsh | grep dir | grep /home/runner/work/platformsh/platformsh || echo "::error:: Not dogfooding this plugin correctly! "
 

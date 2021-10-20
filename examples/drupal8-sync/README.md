@@ -16,7 +16,7 @@ lando poweroff
 
 # Should initialize the platformsh lando-d8 example
 rm -rf drupal && mkdir -p drupal && cd drupal
-lando init --source platformsh --platformsh-auth "$PLATFORMSH_CLI_TOKEN" --platformsh-site lando-d8 --platformsh-key-name "$GITHUB_SHA" -vvv
+lando init --source platformsh --platformsh-auth "$PLATFORMSH_CLI_TOKEN" --platformsh-site lando-d8 --platformsh-key-name "$GITHUB_SHA"
 
 # Should start up our platformsh drupal 8 site successfully
 cd drupal

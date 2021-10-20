@@ -47,11 +47,9 @@ jobs:
           cp -f actions-lando-config.yml ~/.lando/config.yml
           echo false > ~/.lando/cache/report_errors
           lando --clear
-
       - name: Verify Lando works and we are dogfooding this plugin for tests
         run: |
           lando version
-          lando config --path plugins
           lando config --path plugins | grep platformsh | grep /home/runner/work/platformsh/platformsh || echo "::error:: Not dogfooding this plugin correctly! "
 
       # This block should eventually become use lando/actions-leia@v2
@@ -66,5 +64,4 @@ jobs:
           sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
       - name: Run leia tests
         shell: bash
-        run: yarn leia "./${{ matrix.leia-tests }}/README.md" -c 'Destroy tests' --stdin --shell bash --debug
-
+        run: yarn leia "./${{ matrix.leia-tests }}/README.md" -c 'Destroy tests' --stdin --shell bash
