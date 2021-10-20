@@ -135,8 +135,6 @@ lando ssh -s db -c "mysql -V" | grep 10.2.
 
 # Should be running mariadb with the correct user
 lando ssh -s db -c "id" | grep app
-
-# SHould be
 ```
 
 Destroy tests
