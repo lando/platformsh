@@ -31,10 +31,10 @@ docker ps --filter label=com.docker.compose.project=landoplatformshredis60 | gre
 docker ps --filter label=com.docker.compose.project=landoplatformshredis60 | grep docker.registry.platform.sh/redis-6.0 | grep landoplatformshredis60_configuredcache_1
 docker ps --filter label=com.docker.compose.project=landoplatformshredis60 | grep docker.registry.platform.sh/redis-persistent-6.0 | grep landoplatformshredis60_database_1
 
-# Should be running all application containers as web
+# Should be running application containers as web
 lando ssh -s app -c "id" | grep web
 
-# Should have the platform cli in all application containers
+# Should have the platform cli in application containers
 lando ssh -s app -c "platform -V"
 
 # Should be running the correct php version
@@ -61,7 +61,7 @@ lando ssh -s configuredcache -c "cat /etc/redis/redis.conf" | grep maxmemory-pol
 # Should have the redis php extension installed
 lando php -m | grep redis
 
-# Should be able to connect to redis from the application containers
+# Should be able to connect to redis from application containers
 lando ssh -s app -c "curl localhost/cache.php" | grep Friday | grep "Deploy day"
 lando ssh -s app -c "curl localhost/configuredcache.php" | grep Friday | grep "Deploy day"
 lando ssh -s app -c "curl localhost/database.php" | grep Friday | grep "Deploy day"
