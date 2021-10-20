@@ -1,0 +1,3 @@
+mariadb:
+  type: mariadb:10.0
+  disk: 512
