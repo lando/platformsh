@@ -47,7 +47,7 @@ lando ssh -s cache -c "id" | grep app
 lando ssh -s cache -c "memcached -V" | grep 1.5
 
 # Should be running memcached on the correct port
-docker top landoplatformshmemcached16_cache_1 | grep /usr/bin/memcached | grep 11211
+docker top landoplatformshmemcached15_cache_1 | grep /usr/bin/memcached | grep 11211
 
 # Should be able to connect to memcached from the application containers
 lando ssh -s app -c "curl localhost/cache.php" | grep Friday | grep "Deploy day"
