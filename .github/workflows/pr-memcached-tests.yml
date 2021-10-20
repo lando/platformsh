@@ -13,7 +13,7 @@ jobs:
         leia-tests:
           - examples/memcached-1.6
           - examples/memcached-1.5
-          - examples/memcached-1.4
+          # - examples/memcached-1.4
         lando-versions:
           - edge
         os:
