@@ -1,9 +1,9 @@
 Platform.sh Integration Example
 ===============================
 
-This example exists primarily to test the following documentation:
+This example exists primarily to test `lando init`, `lando start` and `lando pull` for a basic Drupal 8 site.
 
-* [Platform.sh Recipe - Drupal 8](https://docs.lando.dev/config/platformsh.html)
+* [Platform.sh Recipe](https://docs.lando.dev/config/platformsh.html)
 
 Start up tests
 --------------
@@ -16,7 +16,7 @@ lando poweroff
 
 # Should initialize the platformsh lando-d8 example
 rm -rf drupal && mkdir -p drupal && cd drupal
-lando init --source platformsh --platformsh-auth "$PLATFORMSH_CLI_TOKEN" --platformsh-site lando-d8 --platformsh-key-name "$CIRCLE_SHA1"
+lando init --source platformsh --platformsh-auth "$PLATFORMSH_CLI_TOKEN" --platformsh-site lando-d8 --platformsh-key-name "$GITHUB_SHA"
 
 # Should start up our platformsh drupal 8 site successfully
 cd drupal
@@ -135,7 +135,7 @@ Run the following commands to trash this app like nothing ever happened.
 # Should be able to remove our platformsh ssh keys
 cp -r remove-keys.sh drupal/remove-keys.sh
 cd drupal
-lando ssh -s appserver -c "/app/remove-keys.sh $CIRCLE_SHA1"
+lando ssh -s appserver -c "/app/remove-keys.sh $GITHUB_SHA"
 cd ..
 rm -rf drupal/remove-keys.sh
 
