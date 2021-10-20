@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm
-      PLATFORM_CLI_TOKEN: ${{ secrets.PLATFORM_CLI_TOKEN }}
+      PLATFORMSH_CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}
     strategy:
       matrix:
         leia-tests:
@@ -44,18 +44,15 @@ jobs:
       - name: Move in lando config appropriate for testing
         run: |
           mkdir -p ~/.lando/cache
-          cp -f test-config.yml ~/.lando/config.yml
+          cp -f actions-lando-config.yml ~/.lando/config.yml
           echo false > ~/.lando/cache/report_errors
+          lando --clear
+
       - name: Verify Lando works and we are dogfooding this plugin for tests
         run: |
           lando version
-          lando config --path plugins | grep platformsh | grep dir | grep /snapshot/cli/node_modules/@lando/platformsh
-          mkdir -p ~/.lando/plugins
-          ln -sf /home/runner/work/platformsh/platformsh ~/.lando/plugins/platformsh
-          lando --clear
-          ls -lsa ~/.lando/plugins
           lando config --path plugins
-          lando config --path plugins | grep platformsh | grep dir | grep /home/runner/work/platformsh/platformsh || echo "::error:: Not dogfooding this plugin correctly! "
+          lando config --path plugins | grep platformsh | grep /home/runner/work/platformsh/platformsh || echo "::error:: Not dogfooding this plugin correctly! "
 
       # This block should eventually become use lando/actions-leia@v2
       # @NOTE? Do we want a way for our leia-action to configure apparmor since

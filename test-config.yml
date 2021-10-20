@@ -1,8 +1,0 @@
-# Disable the "core" platformsh plugin
-disablePlugins:
-  - lando-platformsh
-
-# Disable metrics reporting
-stats:
-  - report: false
-    url: https://metrics.lando.dev
