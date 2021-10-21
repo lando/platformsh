@@ -15,8 +15,8 @@ jobs:
           - examples/redis-5.0
           - examples/redis-4.0
           - examples/redis-3.2
-          # - examples/redis-3.0
-          # - examples/redis-2.8
+          - examples/redis-3.0
+          - examples/redis-2.8
         lando-versions:
           - edge
         os:
