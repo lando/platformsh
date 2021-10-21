@@ -1,9 +1,9 @@
-Platform.sh PostgreSQL 9.6 Example
+Platform.sh PostgreSQL 13 Example
 ================================
 
-This example exists to test this plugin's implementation of Platform.sh's `postgresql:9.6` service.
+This example exists to test this plugin's implementation of Platform.sh's `postgresql:13` service.
 
-* [Platform.sh PostgreSQL 9.6](https://docs.platform.sh/configuration/services/postgresql.html)
+* [Platform.sh PostgreSQL 13](https://docs.platform.sh/configuration/services/postgresql.html)
 
 Start up tests
 --------------
@@ -25,8 +25,8 @@ Run the following commands to validate things are rolling as they should.
 
 ```bash
 # Should have the expected platformsh containers and images
-docker ps --filter label=com.docker.compose.project=landoplatformshpostgresql96 | grep docker.registry.platform.sh/php-7.3 | grep landoplatformshpostgresql96_app_1
-docker ps --filter label=com.docker.compose.project=landoplatformshpostgresql96 | grep docker.registry.platform.sh/postgresql-9.6 | grep landoplatformshpostgresql96_postgresql_1
+docker ps --filter label=com.docker.compose.project=landoplatformshpostgresql13 | grep docker.registry.platform.sh/php-7.3 | grep landoplatformshpostgresql13_app_1
+docker ps --filter label=com.docker.compose.project=landoplatformshpostgresql13 | grep docker.registry.platform.sh/postgresql-13 | grep landoplatformshpostgresql13_postgresql_1
 
 # Should be running all application containers as web
 lando ssh -s app -c "id" | grep web
@@ -41,7 +41,7 @@ lando ssh -s app -c "php --version" | grep 7.3.
 lando ssh -s postgresql -c "id" | grep postgres
 
 # Should be running the correct postgresql versions
-lando ssh -s postgresql -c "psql -V" | grep 9.6.
+lando ssh -s postgresql -c "psql -V" | grep 13.
 
 # Should be able to connect to all postgresql relationships
 lando postgresql main -c "\dt"

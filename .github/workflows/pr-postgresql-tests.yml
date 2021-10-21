@@ -12,10 +12,10 @@ jobs:
       matrix:
         leia-tests:
           - examples/postgresql-9.6
-        #  - examples/postgresql-10
-        #  - examples/postgresql-11
-        #  - examples/postgresql-12
-        #  - examples/postgresql-13
+          - examples/postgresql-10
+          - examples/postgresql-11
+          - examples/postgresql-12
+          - examples/postgresql-13
         lando-versions:
           - edge
         os:
