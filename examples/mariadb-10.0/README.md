@@ -53,8 +53,8 @@ lando database legacy -e "show tables;"
 lando reports main -e "show tables;"
 lando imports legacy -e "show tables;"
 
-# Should allow for custom configuration to be set
-lando mariadb main -e "show variables;" | grep max_allowed_packet | grep 34603008
+# Should NOT allow for custom configuration to be set
+lando mariadb main -e "show variables;" | grep max_allowed_packet | grep 16777216
 
 # Should be able to connect to mariadb from the application containers
 lando ssh -s app -c "curl localhost/mariadb.php" | grep "Neil Armstrong"
