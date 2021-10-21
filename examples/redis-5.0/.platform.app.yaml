@@ -1,0 +1,16 @@
+name: app
+type: "php:7.3"
+build:
+  flavor: composer
+runtime:
+  extensions:
+    - redis
+web:
+  locations:
+    "/":
+      root: "."
+      passthru: "/index.php"
+relationships:
+  cache: "cache:redis"
+  configuredcache: "configuredcache:redis"
+  database: "database:redis"
