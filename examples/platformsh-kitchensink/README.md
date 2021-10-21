@@ -118,14 +118,6 @@ lando ssh -s searchelastic -c "id" | grep elasticsearch
 cd sink/php
 true
 
-# Should run the correct version of solr
-cd sink/php
-lando ssh -s search -c "curl localhost:8080/solr/admin/info/system?wt=json" | grep solr-spec-version | grep "8.0"
-
-# Should run php solr commands successfully
-cd sink/php
-lando ssh -c "curl localhost/solr.php" | grep "Result" | grep "OK"
-
 # Should run php mongodb commands successfully
 cd sink/php
 lando ssh -c "curl localhost/mongodb.php" | grep "Result" | grep "OK"
