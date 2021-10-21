@@ -61,6 +61,7 @@ lando ssh -s app -c "curl localhost/mariadb.php" | grep "Neil Armstrong"
 lando ssh -s app -c "curl localhost/database.php" | grep "Buzz Aldrin"
 lando ssh -s app -c "curl localhost/reports.php" | grep "James Tiberius Kirk"
 lando ssh -s app -c "curl localhost/imports.php" | grep "Sally Ride"
+
 # Should be able to persist data across a rebuild
 lando database main -e "CREATE TABLE williams (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(30) NOT NULL, city VARCHAR(30) NOT NULL)"
 lando database legacy -e "CREATE TABLE glover (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(30) NOT NULL, city VARCHAR(30) NOT NULL)"
