@@ -9,11 +9,7 @@ web:
       root: "."
       passthru: "/index.php"
 relationships:
-  mariadb: 'mariadb:mysql'
-mounts:
-  'files':
-    source: local
-    source_path: files
-  'private':
-    source: local
-    source_path: private
+  mariadb: "mariadb:mysql"
+  database: "multi:admin"
+  reports: "multi:reporter"
+  imports: "multi:importer"

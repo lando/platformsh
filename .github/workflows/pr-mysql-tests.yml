@@ -1,4 +1,4 @@
-name: MySQL/MariaDB Tests
+name: MySQL Tests
 
 on:
   pull_request:
@@ -11,13 +11,6 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - examples/mariadb-10.0
-          - examples/mariadb-10.1
-          - examples/mariadb-10.2
-          - examples/mariadb-10.3
-          - examples/mariadb-10.4
-          # This is known to not work and uses a later image
-          # - examples/mariadb-10.5
           - examples/mysql-10.0
           - examples/mysql-10.1
           - examples/mysql-10.2

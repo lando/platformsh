@@ -9,11 +9,7 @@ web:
       root: "."
       passthru: "/index.php"
 relationships:
-  mysql: 'mysql:mysql'
-mounts:
-  'files':
-    source: local
-    source_path: files
-  'private':
-    source: local
-    source_path: private
+  mysql: "mysql:mysql"
+  database: "multi:admin"
+  reports: "multi:reporter"
+  imports: "multi:importer"
