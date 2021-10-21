@@ -1,11 +1,11 @@
 cache:
-  type: redis:5.0
+  type: redis:4.0
 
 configuredcache:
-  type: redis:5.0
+  type: redis:4.0
   configuration:
     maxmemory_policy: noeviction
 
 database:
-  type: redis-persistent:5.0
+  type: redis-persistent:4.0
   disk: 256
