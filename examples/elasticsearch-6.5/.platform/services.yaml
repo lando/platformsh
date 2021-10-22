@@ -1,0 +1,2 @@
+searchelastic:
+  type: elasticsearch:6.5
