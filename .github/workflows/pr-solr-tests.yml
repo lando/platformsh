@@ -11,7 +11,16 @@ jobs:
     strategy:
       matrix:
         leia-tests:
+          - examples/solr-8.6
+          - examples/solr-8.4
           - examples/solr-8.0
+          - examples/solr-7.7
+          - examples/solr-7.6
+          - examples/solr-6.6
+          - examples/solr-6.3
+          # - examples/solr-4.10
+          # - examples/solr-3.6
+
         lando-versions:
           - edge
         os:

@@ -39,15 +39,27 @@ lando ssh -s app -c "php --version" | grep 7.3.
 
 # Should be running all solr containers as app
 lando ssh -s search -c "id" | grep app
+lando ssh -s multicore -c "id" | grep app
+lando ssh -s configset -c "id" | grep app
 
 # Should be running the correct solr versions
 lando ssh -s search -c "curl localhost:8080/solr/admin/info/system?wt=json" | grep solr-spec-version | grep "8.0"
+lando ssh -s multicore -c "curl localhost:8080/solr/admin/info/system?wt=json" | grep solr-spec-version | grep "8.0"
+lando ssh -s configset -c "curl localhost:8080/solr/admin/info/system?wt=json" | grep solr-spec-version | grep "8.0"
 
 # Should be able to connect to all solr cores
 lando ssh -s search -c "curl localhost:8080/solr/collection1/admin/ping?wt=json" | grep status | grep OK
+lando ssh -s multicore -c "curl localhost:8080/solr/mainindex/admin/ping?wt=json" | grep status | grep OK
+lando ssh -s multicore -c "curl localhost:8080/solr/extraindex/admin/ping?wt=json" | grep status | grep OK
+lando ssh -s configset -c "curl localhost:8080/solr/english_index/admin/ping?wt=json" | grep status | grep OK
+lando ssh -s configset -c "curl localhost:8080/solr/arabic_index/admin/ping?wt=json" | grep status | grep OK
 
-# Should be able to connect to solr from application containers
-lando ssh -s app -c "curl localhost/search.php"
+# Should be able to connect to solr core relationships from application containers
+lando ssh -s app -c "curl localhost/search.php" | grep "It worked"
+lando ssh -s app -c "curl localhost/main.php" | grep "It worked"
+lando ssh -s app -c "curl localhost/extra.php" | grep "It worked"
+lando ssh -s app -c "curl localhost/english.php" | grep "It worked"
+lando ssh -s app -c "curl localhost/arabic.php" | grep "It worked"
 ```
 
 Destroy tests
