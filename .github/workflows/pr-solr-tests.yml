@@ -18,8 +18,8 @@ jobs:
           - examples/solr-7.6
           - examples/solr-6.6
           - examples/solr-6.3
-          # - examples/solr-4.10
-          # - examples/solr-3.6
+          - examples/solr-4.10
+          - examples/solr-3.6
 
         lando-versions:
           - edge

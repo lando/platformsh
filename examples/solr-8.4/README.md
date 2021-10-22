@@ -27,6 +27,8 @@ Run the following commands to validate things are rolling as they should.
 # Should have the expected platformsh containers and images
 docker ps --filter label=com.docker.compose.project=landoplatformshsolr84 | grep docker.registry.platform.sh/php-7.3 | grep landoplatformshsolr84_app_1
 docker ps --filter label=com.docker.compose.project=landoplatformshsolr84 | grep docker.registry.platform.sh/solr-8.4 | grep landoplatformshsolr84_search_1
+docker ps --filter label=com.docker.compose.project=landoplatformshsolr84 | grep docker.registry.platform.sh/solr-8.6 | grep landoplatformshsolr84_multi_1
+docker ps --filter label=com.docker.compose.project=landoplatformshsolr84 | grep docker.registry.platform.sh/solr-8.6 | grep landoplatformshsolr84_configset_1
 
 # Should be running application containers as web
 lando ssh -s app -c "id" | grep web
