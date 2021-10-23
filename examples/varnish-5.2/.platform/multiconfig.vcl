@@ -1,3 +1,5 @@
+vcl 4.0;
+
 import cookie;
 import header;
 import saintmode;

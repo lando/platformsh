@@ -14,7 +14,8 @@ jobs:
           - examples/varnish-6.3
           - examples/varnish-6.0
           - examples/varnish-5.2
-          - examples/varnish-5.1
+          # @NOTE: the varnish 5.1 image is actually the varnish 5.2 image as well
+          # - examples/varnish-5.1
 
         lando-versions:
           - edge
