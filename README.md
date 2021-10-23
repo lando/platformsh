@@ -14,7 +14,7 @@ Of course, once a user is running their Platform.sh project with Lando they can 
 
 This plugin is included with Lando by default. That means if you have Lando version `3.0.8` or higher then this plugin is already installed!
 
-However if you would like to manually install the plugin for whatever reason you can follow the below:
+However if you would like to manually install the plugin for whatever reason you can follow the below. Note that this installation method requires Lando `3.5.0+`.
 
 ```bash
 # Ensure you have a global plugins directory
@@ -25,7 +25,8 @@ docker run --rm -it -v ${HOME}/.lando/plugins:/plugins -w /tmp node:14-alpine sh
   "yarn init -y \
   && yarn add lando/platformsh#main --production --flat --no-default-rc --no-lockfile --link-duplicates \
   && yarn install --production --cwd /tmp/node_modules/@lando/platformsh \
-  && mv --force /tmp/node_modules/@lando/platformsh /plugins"
+  && mkdir -p /plugins/@lando \
+  && mv --force /tmp/node_modules/@lando/platformsh /plugins/@lando/platformsh"
 
 # Rebuild the plugin cache
 lando --clear
