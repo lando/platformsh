@@ -47,8 +47,8 @@ lando ssh -s edge -c "id" | grep www-data
 lando ssh -s multiedge -c "id" | grep www-data
 
 # Should be running the correct varnish versions
-lando ssh -s edge -c "varnishd -V" | grep varnishd | grep varnish | grep "6.0."
-lando ssh -s multiedge -c "varnishd -V" | grep varnishd | grep varnish | grep "6.0."
+lando ssh -s edge -c "varnishd -V 2>&1" | grep varnishd | grep varnish | grep "6.0."
+lando ssh -s multiedge -c "varnishd -V 2>&1" | grep varnishd | grep varnish | grep "6.0."
 
 # Should be able to connect to all varnish relationships
 lando ssh -s app -c "curl http://lando-platformsh-varnish-6.0.lndo.site/" | grep HELLO
