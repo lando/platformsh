@@ -142,15 +142,6 @@ lando ssh -u root -s influxdb -c "ps aux|grep influxdb" | grep "^app"
 cd sink/php
 lando ssh -u root -s kafka -c "ps aux" | grep runsv | grep kafka
 
-# Should connect to the correct backend from varnish
-cd sink/php
-lando ssh -s varnish -c "curl localhost:8080" | grep discreet
-
-# Should be able to connect to varnish stats endpoint
-cd sink/php
-lando ssh -s varnish -c "curl localhost:8081/config" | grep backend | grep test_1
-lando ssh -s varnish -c "curl localhost:8081/config" | grep "req.backend_hint" | grep "test.backend()"
-
 # Should find chromium service
 cd sink/php
 lando ssh -s chromium -c "ps -aux" | grep "chromium-headless"
