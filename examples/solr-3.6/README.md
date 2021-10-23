@@ -43,14 +43,14 @@ lando ssh -s search -c "id" | grep app
 lando ssh -s customcore -c "id" | grep app
 
 # Should be running the correct solr versions
-lando ssh -s search -c "curl localhost:8080/solr/admin/info/system?wt=json" | grep solr-spec-version | grep "3.6"
-lando ssh -s customcore -c "curl localhost:8080/solr/admin/info/system?wt=json" | grep solr-spec-version | grep "3.6"
+lando ssh -s search -c "curl localhost:8080/solr/admin/system?wt=json" | grep solr-spec-version | grep "3.6."
+lando ssh -s customcore -c "curl localhost:8080/solr/admin/system?wt=json" | grep solr-spec-version | grep "3.6."
 
 # Should be able to connect to all solr cores
 lando ssh -s search -c "curl localhost:8080/solr/collection1/admin/ping?wt=json" | grep status | grep OK
 lando ssh -s search -c "curl localhost:8080/solr/admin/ping?wt=json" | grep status | grep OK
 lando ssh -s customcore -c "curl localhost:8080/solr/collection1/admin/ping?wt=json" | grep status | grep OK
-lando ssh -s customcore -c "curl localhost:8080/admin/collection1/admin/ping?wt=json" | grep status | grep OK
+lando ssh -s customcore -c "curl localhost:8080/solr/admin/ping?wt=json" | grep status | grep OK
 
 # Should be able to connect to solr core relationships from application containers
 lando ssh -s app -c "curl localhost/search.php" | grep "It worked"

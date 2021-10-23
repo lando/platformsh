@@ -9,4 +9,4 @@ web:
       passthru: "/index.php"
 relationships:
   search: "search:solr"
-  # custom: "customcore:solr"
+  custom: "customcore:solr"
