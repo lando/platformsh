@@ -5,7 +5,7 @@ const _ = require('lodash');
 
 // Builder
 module.exports = {
-  name: 'platformsh-mariadb',
+  name: 'platformsh-mysql',
   config: {
     confSrc: __dirname,
     legacy: ['5.5'],
@@ -13,16 +13,16 @@ module.exports = {
     supportedIgnore: true,
   },
   parent: '_platformsh_service',
-  builder: (parent, config) => class LandoPlatformshMariaDB extends parent {
+  builder: (parent, config) => class LandoPlatformshMySQL extends parent {
     constructor(id, options = {}, factory) {
       options = _.merge({}, config, options);
 
       // Set the meUser
       options.meUser = 'app';
 
-      // Build the mariadb
-      const mariadb = {
-        image: `docker.registry.platform.sh/mariadb-${options.version}`,
+      // Build the mysql
+      const mysql = {
+        image: `docker.registry.platform.sh/mysql-${options.version}`,
         ports: [options.port],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,
@@ -33,8 +33,8 @@ module.exports = {
         ],
       };
 
-      // Add in the mariadb service and push downstream
-      super(id, options, {services: _.set({}, options.name, mariadb)});
+      // Add in the mysql service and push downstream
+      super(id, options, {services: _.set({}, options.name, mysql)});
     };
   },
 };
