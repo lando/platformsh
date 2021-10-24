@@ -16,6 +16,9 @@ module.exports = {
     constructor(id, options = {}, factory) {
       options = _.merge({}, config, options);
 
+      // Make sure we get a localhost assignment for 9222
+      options.moreHttpPorts = ['9222'];
+
       // Build chrome-headless
       const chromeHeadless = {
         image: `docker.registry.platform.sh/chrome-headless-${options.version}`,
