@@ -8,7 +8,7 @@ module.exports = {
   name: 'platformsh-mariadb',
   config: {
     confSrc: __dirname,
-    legacy: [],
+    legacy: ['5.5'],
     port: '3306',
     supportedIgnore: true,
   },
@@ -17,8 +17,6 @@ module.exports = {
     constructor(id, options = {}, factory) {
       options = _.merge({}, config, options);
 
-      // Add 5.5 to the legacy key if this coming from mysql
-      if (options.platformsh.type === 'mysql') options.legacy.push('5.5');
       // Set the meUser
       options.meUser = 'app';
 

@@ -118,14 +118,6 @@ lando ssh -s searchelastic -c "id" | grep elasticsearch
 cd sink/php
 true
 
-# Should run the correct version of solr
-cd sink/php
-lando ssh -s search -c "curl localhost:8080/solr/admin/info/system?wt=json" | grep solr-spec-version | grep "8.0"
-
-# Should run php solr commands successfully
-cd sink/php
-lando ssh -c "curl localhost/solr.php" | grep "Result" | grep "OK"
-
 # Should run php mongodb commands successfully
 cd sink/php
 lando ssh -c "curl localhost/mongodb.php" | grep "Result" | grep "OK"
@@ -149,15 +141,6 @@ lando ssh -u root -s influxdb -c "ps aux|grep influxdb" | grep "^app"
 # Should show kafka process running
 cd sink/php
 lando ssh -u root -s kafka -c "ps aux" | grep runsv | grep kafka
-
-# Should connect to the correct backend from varnish
-cd sink/php
-lando ssh -s varnish -c "curl localhost:8080" | grep discreet
-
-# Should be able to connect to varnish stats endpoint
-cd sink/php
-lando ssh -s varnish -c "curl localhost:8081/config" | grep backend | grep test_1
-lando ssh -s varnish -c "curl localhost:8081/config" | grep "req.backend_hint" | grep "test.backend()"
 
 # Should find chromium service
 cd sink/php

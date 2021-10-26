@@ -1,17 +1,11 @@
 {
   "name": "@lando/platformsh",
   "description": "A Lando plugin that provides a tight integration with Platform.sh.",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": "Mike Pirog @pirog",
   "license": "GPL-3.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lando/platformsh"
-  },
-  "bugs": {
-    "email": "mike@lando.dev",
-    "url": "https://github.com/lando/platformsh/issues"
-  },
+  "repository": "lando/platformsh",
+  "bugs": "https://github.com/lando/platformsh/issues/new/choose",
   "homepage": "https://github.com/lando/platformsh",
   "keywords": [
     "lando",
@@ -50,7 +44,7 @@
     "tar": "^6.1.11"
   },
   "devDependencies": {
-    "@lando/leia": "^0.6.3",
+    "@lando/leia": "^0.6.4",
     "chai": "^4.3.4",
     "command-line-test": "^1.0.10",
     "eslint": "^7.32.0",
