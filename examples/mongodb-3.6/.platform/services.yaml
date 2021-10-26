@@ -1,0 +1,2 @@
+mongo:
+  type: mongodb:3.6

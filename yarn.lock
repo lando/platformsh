@@ -258,10 +258,10 @@
   resolved "https://registry.yarnpkg.com/@lando/argv/-/argv-1.0.6.tgz#296bd835f01d3ad3f336dfc24052d29079a1fd36"
   integrity sha512-+GQ+Cu9QI+bYrhPN4TRLrQg5V3G56b7WNHRO21LPQgXOxUsnDSxPxWLsZoivrcEAGCsKhMQkA//ShXZMovlmqw==
 
-"@lando/leia@^0.6.3":
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/@lando/leia/-/leia-0.6.3.tgz#493f21a7233b2417d2903c838f01f5ab35a8f5dc"
-  integrity sha512-6p7pcOJpZSXfB7aNwcQ1+WhiNxqsKmeh8cvvlM3zxxjtGLuxjRiG3W8d2AlNE/wWh2EQmkp/08EY+WjgcEMHtQ==
+"@lando/leia@^0.6.4":
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/@lando/leia/-/leia-0.6.4.tgz#246149798f00bb50530f300b16c5d8718a6b134b"
+  integrity sha512-lSFJftURdfGrz+an77sGNi7gC8VnsxY0H9a/HX5X71lRqlsAL14x1rDQfrHb6kHSbI3621cEvw+22blTo3ol3A==
   dependencies:
     "@lando/argv" "^1.0.6"
     "@oclif/command" "^1.8.0"

@@ -1,0 +1,14 @@
+name: app
+type: "php:7.3"
+build:
+  flavor: composer
+runtime:
+  extensions:
+    - mongodb
+web:
+  locations:
+    "/":
+      root: "."
+      passthru: "/index.php"
+relationships:
+  mongo: "mongo:mongodb"
