@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         leia-tests:
+          - examples/postgresql-9.3
           - examples/postgresql-9.6
           - examples/postgresql-10
           - examples/postgresql-11
