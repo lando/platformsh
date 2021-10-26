@@ -45,6 +45,9 @@ lando ssh -s searchelastic -c "curl -XGET 'http://localhost:9200'" | grep 6.5
 
 # Should be able to connect to elasticsearch from the application containers
 lando ssh -s app -c "curl localhost/esearch.php" | grep "Barbara Liskov"
+
+# Should be running the correct elasticsearch versions (plugin service)
+lando ssh -s searchelastic-plugin -c "curl -XGET 'http://localhost:9200'" | grep 6.5
 ```
 
 Destroy tests
