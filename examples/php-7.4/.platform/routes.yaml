@@ -3,9 +3,9 @@
 # Each route describes how an incoming URL is going
 # to be processed by Platform.sh.
 
-"https://vanilla.{default}/":
-  type: upstream
-  upstream: "vanilla:http"
+# "https://vanilla.{default}/":
+#   type: upstream
+#   upstream: "vanilla:http"
 
 "https://advanced.{default}/":
   type: upstream

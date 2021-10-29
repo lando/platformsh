@@ -1,7 +1,22 @@
-name: vanilla
+name: advanced
 type: "php:7.4"
+runtime:
+  extensions:
+    - redis
+dependencies:
+  php:
+    "platformsh/client": "2.x-dev"
+    "composer/composer": "^2"
 build:
-  flavor: none
+  flavor: composer
+hooks:
+  build: |
+    set -e
+    touch /tmp/build
+  deploy: |
+    set -e
+    touch /tmp/deploy
+
 web:
   locations:
     "/":
