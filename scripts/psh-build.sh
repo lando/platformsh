@@ -26,13 +26,18 @@ export LANG="C.UTF-8"
 export PLATFORM_CACHE_DIR="/var/www"
 export PLATFORM_APP_DIR="/app"
 
+
+
 # Install the platform-cli if we need it
 if [ ! -f "$HOME/.platformsh/bin/platform" ]; then
+  if ! curl -sS https://platform.sh/cli/installer &>/dev/null; then sleep 10; fi
   curl -sS https://platform.sh/cli/installer | php
 fi
 
 # Make sure platform things are sourced for this script
-. "$HOME/.bashrc"
+if [ -f "$HOME/.bashrc" ]; then
+  . "$HOME/.bashrc"
+fi
 
 # Make sure our local build dir exists
 mkdir -p /app/.platform/local
