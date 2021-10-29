@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6d4d4ba48049c56ef5ca0164a86324c",
+    "content-hash": "f99f61b95f625a0c49104bd35fb7a4ba",
     "packages": [
         {
             "name": "platformsh/config-reader",
@@ -43,6 +43,10 @@
                 }
             ],
             "description": "Small helper to access Platform.sh environment variables",
+            "support": {
+                "issues": "https://github.com/platformsh/config-reader-php/issues",
+                "source": "https://github.com/platformsh/config-reader-php/tree/2.4.0"
+            },
             "time": "2020-12-10T20:50:12+00:00"
         }
     ],
@@ -53,8 +57,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.0"
+        "php": ">=7.4"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.1.0"
 }
