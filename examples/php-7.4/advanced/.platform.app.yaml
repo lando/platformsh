@@ -22,5 +22,5 @@ web:
     "/":
       root: "."
       passthru: "/index.php"
-  commands:
-    start: /usr/sbin/php-fpm8.0-zts
+  # commands:
+  #   start: /usr/sbin/php-fpm7.4-zts
