@@ -48,6 +48,16 @@ lando ssh -s app -c "curl localhost/esearch.php" | grep "Barbara Liskov"
 
 # Should be running the correct elasticsearch versions (plugin service)
 lando ssh -s searchelastic-plugin -c "curl -XGET 'http://localhost:9200'" | grep 6.5
+
+# Should be able to enable the _size field for mapper-size plugin
+lando ssh -s searchelastic-plugin -c "curl -X PUT 'localhost:9200/my_index?pretty' -H 'Content-Type:application/json' -d'{\"mappings\": {\"_doc\": {\"_size\": {\"enabled\": true}}}}'"
+
+# Should be able to add a doc to the ES index
+lando ssh -s searchelastic-plugin -c "curl -X PUT 'localhost:9200/my-index/_doc/1?pretty' -H 'Content-Type: application/json' -d'{\"text\": \"This is a document\"}'"
+
+# Should see _size field when querying ES index.
+lando ssh -s searchelastic-plugin -c "curl -X GET 'localhost:9200/my_index/_search?pretty' -H 'Content-Type: application/json' -d '{  \"query\": {    \"range\": {      \"_size\": {         \"gt\": 10      }    }  },  \"aggs\": {    \"sizes\": {      \"terms\": {        \"field\": \"_size\",         \"size\": 10      }    }  },  \"sort\": [    {      \"_size\": {         \"order\": \"desc\"      }    }  ],  \"script_fields\": {    \"size\": {      \"script\": \"doc[\\u0027_size\\u0027]\"      }  }}'" | grep sizes
+
 ```
 
 Destroy tests
