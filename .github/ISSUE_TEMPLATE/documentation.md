@@ -1,5 +1,5 @@
 ---
-name: Suggest a documentation change or improvement
-about: Create a documentation issue or request
+name: Docs
+about: Suggest a documentation change or improvement
 labels: docs
 ---
