@@ -1,9 +1,9 @@
 <template>
   <div id="special_sponsors">
     <h4>special sponsors</h4>
-    <div class="special-sponsor-block" v-for="(patriot, index) in patriots" :key="index">
-      <a :href="patriot.url" target="_blank">
-        <div class="special-sponsor-image"><img :src="patriot.logo" :alt="patriot.name"></div>
+    <div class="special-sponsor-block" v-for="(sponsor, index) in sponsorList" :key="index">
+      <a :href="sponsor.url" target="_blank">
+        <div class="special-sponsor-image"><img :src="sponsor.logo" :alt="sponsor.name"></div>
       </a>
     </div>
     <div class="special-sponsor-footer">
@@ -14,22 +14,32 @@
 
 
 <script>
-import {filter} from 'lodash';
+import { filter } from 'lodash';
+import { useThemeData } from '@vuepress/plugin-theme-data/lib/client';
+
 export default {
-  props: [
-    'sponsors',
-    'showSponsors'
-  ],
   data() {
     return {
-      patriots: [],
+      sponsorList: [],
     };
   },
+  setup() {
+    // Get theme data
+    const themeData = useThemeData();
+    // Get the config from themedata
+    const {showSponsors = true} = themeData.value;
+    const {sponsors = []} = themeData.value;
+
+    return {
+      showSponsors,
+      sponsors
+    }
+  },
   mounted() {
-    this.patriots = !Array.isArray(this.showSponsors) 
+    this.sponsorList = !Array.isArray(this.showSponsors) 
       ? this.sponsors
       : filter(this.sponsors, sponsor => {
-          return this.showSponsors.includes(sponsor.name);
+          return this.showSponsors.includes(sponsor.id);
       });
   },
 };
