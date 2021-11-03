@@ -1,6 +1,7 @@
 const {path} = require('@vuepress/utils');
 
 module.exports = (options, app) => {
+  // console.log(options);
   return {
     name: '@lando/vuepress-docs-theme',
     extends: '@vuepress/theme-default',

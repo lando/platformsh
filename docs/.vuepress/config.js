@@ -11,6 +11,7 @@ module.exports = {
   theme: path.resolve(__dirname, 'theme'),
   themeConfig: {
     logo: '/images/logo-pink-small.png',
+    repo: 'lando/platformsh',
     navbar: [
       {text: 'Getting Started', link: 'https://docs.lando.dev/basics/'},
       {text: 'Config', link: '/config/lando.md'},
