@@ -14,6 +14,7 @@ module.exports = {
     repo: 'lando/platformsh',
     docsDir: 'docs',
     docsBranch: 'main',
+    showSponsors: ['Platform.sh'],
     navbar: [
       {text: 'Getting Started', link: 'https://docs.lando.dev/basics/'},
       {text: 'Config', link: '/config/lando.md'},

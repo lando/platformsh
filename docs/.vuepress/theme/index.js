@@ -9,7 +9,7 @@ module.exports = (options, app) => {
     showCarbonAds: true,
     // Shows the special sponsors on the right
     // Can be true|false|or a list of sponsors to show
-    // showSponsors: ['platformsh'],
+    showSponsors: true,
     // Metadata for our sponsors
     // sponsors:
   };
