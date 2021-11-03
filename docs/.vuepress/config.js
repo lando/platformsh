@@ -44,7 +44,7 @@ module.exports = {
     ],
     docsDir: 'docs',
     docsBranch: 'main',
-    showSponsors: ['platformsh'],
+    //showSponsors: ['platformsh'],
     navbar: [
       {text: 'Getting Started', link: 'https://docs.lando.dev/basics/'},
       {text: 'Config', link: '/config/lando.md'},

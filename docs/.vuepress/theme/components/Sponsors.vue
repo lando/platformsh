@@ -1,11 +1,14 @@
 <template>
   <div id="special_sponsors">
     <h4>special sponsors</h4>
-    <div class="special-sponsor-block" v-for="(sponsor, index) in sponsorList" :key="index">
-      <a :href="sponsor.url" target="_blank">
-        <div class="special-sponsor-image"><img :src="sponsor.logo" :alt="sponsor.name"></div>
-      </a>
+    <div class="sponsor-wrapper">
+      <div class="special-sponsor-block" v-for="(sponsor, index) in sponsorList" :key="index">
+        <a :href="sponsor.url" target="_blank">
+          <div class="special-sponsor-image"><img :src="sponsor.logo" :alt="sponsor.name"></div>
+        </a>
+      </div>
     </div>
+
     <div class="special-sponsor-footer">
       <a href="https://lando.dev/sponsor" target="_blank">become a sponsor</a>
     </div>
@@ -65,7 +68,27 @@ export default {
   }
   @media (max-width: 1300px) {
     #special_sponsors {
-      display: none;
+      position: initial;
+      padding: 1em;
+      right: initial;
+      top: initial;
+      width: initial;
+      .sponsor-wrapper {
+        display: flex;
+        justify-content: center;
+        .special-sponsor-block {
+          margin-top: auto;
+          margin-bottom: auto;
+          padding-right: 1em;
+          img {
+            height: auto;
+            padding: 0;
+          }
+        }
+      }
+      .special-sponsor-footer {
+        padding-top: 2em;
+      }
     }
   }
 </style>
