@@ -140,7 +140,7 @@ module.exports = (app, lando) => {
       // Add relationships keyed by the service name
       app.platformsh.relationships = pshconf.parseRelationships(
         platformConfig.applications,
-        app.platformsh.closestOpenCache
+        app.platformsh.closestOpenCache,
       );
       app.log.verbose('determined platformsh relationships');
       app.log.silly('platformsh relationships are', app.platformsh.relationships);
@@ -153,7 +153,7 @@ module.exports = (app, lando) => {
       // Figure out what relationships are pullable and not
       app.platformsh.closestApp.syncableRelationships = pshconf.getSyncableRelationships(
         app.platformsh.closestApp.relationships,
-        app.platformsh.services
+        app.platformsh.services,
       );
 
       // Go through our platform config and generate an array of configuration files for each
@@ -258,7 +258,7 @@ module.exports = (app, lando) => {
           serviceTooling: tooling.getServiceTooling(
             application.serviceContainers,
             application.openData,
-            application.name
+            application.name,
           ),
         }))
         // Merge it all together

@@ -12,6 +12,8 @@ module.exports = {
   themeConfig: {
     logo: '/images/logo-pink-small.png',
     repo: 'lando/platformsh',
+    docsDir: 'docs',
+    docsBranch: 'main',
     navbar: [
       {text: 'Getting Started', link: 'https://docs.lando.dev/basics/'},
       {text: 'Config', link: '/config/lando.md'},
