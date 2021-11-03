@@ -80,6 +80,9 @@ export default {
           margin-top: auto;
           margin-bottom: auto;
           padding-right: 1em;
+          &:last-of-type {
+            padding-right: 0;
+          }
           img {
             height: auto;
             padding: 0;
