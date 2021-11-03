@@ -14,10 +14,12 @@ module.exports = {
   themeConfig: {
     logo: '/images/logo-pink-small.png',
     repo: 'lando/platformsh',
-    sponsors: yaml.load(fs.readFileSync(path.resolve(__dirname, 'public') + '/api/sponsors.yml', 'utf8')),
     docsDir: 'docs',
     docsBranch: 'main',
-    showSponsors: ['platformsh'],
+    sponsors: yaml.load(fs.readFileSync(path.resolve(__dirname, 'public') + '/api/sponsors.yml', 'utf8')),
+    // showSponsors: ['platformsh'],
+    showCarbonAds: true,
+    showSponsors: true,
     navbar: [
       {text: 'Getting Started', link: 'https://docs.lando.dev/basics/'},
       {text: 'Config', link: '/config/lando.md'},

@@ -66,6 +66,11 @@ export default {
 		margin-top: 0.5em;
 	}
 }
+.dark {
+  a.carbon-text {
+    color: var(--c-text-light);
+  }
+}
 @media (max-width: $MQMobile) {
   .carbon-ads .carbon-img img {
     width: 100px;
