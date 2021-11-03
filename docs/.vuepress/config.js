@@ -6,7 +6,6 @@ module.exports = {
   description: 'Lando Platform.sh Plugin Documentation',
   head: [
     ['link', {rel: 'icon', href: '/favicon.ico'}],
-    ['link', {rel: 'stylesheet', href: '/styles/overrides.css'}],
     ['link', {rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Poppins:700|Source+Sans+Pro&display=swap'}],
   ],
   theme: path.resolve(__dirname, 'theme'),
