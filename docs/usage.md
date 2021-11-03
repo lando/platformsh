@@ -740,4 +740,4 @@ If you are interested in working on the development of this recipe we recommend 
 * The Lando [contrib docs](https://docs.lando.dev/contrib/contributing.html)
 * The [Dev Docs](https://github.com/lando/lando/tree/master/integrations/lando-platformsh) for this recipe
 
-<RelatedGuides tag="Platform.sh"/>
+<!-- <RelatedGuides tag="Platform.sh"/> -->
