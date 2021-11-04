@@ -55,7 +55,7 @@ export default {
     right: 2em;
     top: 6em;
     width: 150px;
-    background: white;
+    background: transparent;
     opacity: .75;
     text-align: center;
     font-size: .8em;

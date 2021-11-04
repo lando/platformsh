@@ -26,5 +26,14 @@ module.exports = {
       {text: 'Guides', link: '/guides/lando-101/lando-overview'},
       {text: 'Help and Support', link: '/help/logs/'},
     ],
+    plugins: [
+      [
+        '@vuepress/docsearch',
+        {
+          apiKey: '15e332850128e9ec96929f44c62f6c88',
+          indexName: 'lando',
+        },
+      ],
+    ]
   },
 };
