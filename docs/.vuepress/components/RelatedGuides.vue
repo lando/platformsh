@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import {resolveSidebarItems} from '@parent-theme/util';
+import { resolveSidebarItems } from '@vuepress/theme-default/lib/client/composables/useSidebarItems.js';
+import { useThemeData } from '@vuepress/plugin-theme-data/lib/client';
 
 export default {
   name: 'RelatedGuides',
@@ -26,7 +27,8 @@ export default {
     };
   },
   mounted() {
-    const guides = resolveSidebarItems(this.$page, '/guides/', this.$site, '/');
+    const themeData = useThemeData();
+    const guides = resolveSidebarItems(this.$frontmatter, themeData);
     const section = guides.find(item => item.title.toLowerCase() === this.tag.toLowerCase());
     this.content = section.children;
   },

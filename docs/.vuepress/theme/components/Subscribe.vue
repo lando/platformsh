@@ -83,6 +83,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../styles/index.scss';
+@import '../styles/palette.scss';
+@import '@vuepress/plugin-palette/palette';
 .subscribe {
   margin: auto;
   width: 90%;
