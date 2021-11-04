@@ -29,6 +29,7 @@ export default {
   mounted() {
     const themeData = useThemeData();
     const guides = resolveSidebarItems(this.$frontmatter, themeData);
+    console.log(guides);
     const section = guides.find(item => item.title.toLowerCase() === this.tag.toLowerCase());
     this.content = section.children;
   },
