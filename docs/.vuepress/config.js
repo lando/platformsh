@@ -10,7 +10,7 @@ module.exports = {
     ['link', {rel: 'icon', href: '/favicon.ico'}],
     ['link', {rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Poppins:700|Source+Sans+Pro&display=swap'}],
   ],
-  theme: path.resolve(__dirname, 'theme'),
+  theme: '@lando/vuepress-docs-theme',
   themeConfig: {
     logo: '/images/logo-pink-small.png',
     repo: 'lando/platformsh',
@@ -27,20 +27,4 @@ module.exports = {
       {text: 'Help and Support', link: '/help/logs/'},
     ],
   },
-  plugins: [
-    [
-      '@vuepress/docsearch',
-      {
-        apiKey: '15e332850128e9ec96929f44c62f6c88',
-        indexName: 'lando',
-      },
-    ],
-    [
-      '@vuepress/register-components',
-      {
-        componentsDir: path.resolve(__dirname, './components'),
-        componentsPatterns: ['*.vue', '**/*.vue']
-      },
-    ],
-  ]
 };
