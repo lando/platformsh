@@ -448,10 +448,10 @@
     mocha "^5.2.0"
     object-hash "^2.2.0"
 
-"@lando/vuepress-docs-theme@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@lando/vuepress-docs-theme/-/vuepress-docs-theme-0.1.2.tgz#16a0e9f8f8cb98bd7874ad95202922567db6e737"
-  integrity sha512-7GyjQXtJ9wbf0I3EKeIliWJC2i8aOss30pl+BrLrfI00Ut5tuWaZv8IqSCM2beZci+WRqqKGeGzFDMq51b+dBg==
+"@lando/vuepress-theme-lando-docs@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@lando/vuepress-theme-lando-docs/-/vuepress-theme-lando-docs-0.2.0.tgz#5d09c07896acbe6a31eb76270237e01c9a5456da"
+  integrity sha512-zE1yOpMMHeBEaDvXoi60VpAhqRyDmOTvzEWzD7Reg1gXTXXE3Xu1OI6PexhWgMY2+gqFRG7l6hxXo40AbQJ4qA==
   dependencies:
     js-yaml "^3.4.6"
     lodash "^4.17.21"

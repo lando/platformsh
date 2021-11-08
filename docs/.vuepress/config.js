@@ -10,7 +10,7 @@ module.exports = {
     ['link', {rel: 'icon', href: '/favicon.ico'}],
     ['link', {rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Poppins:700|Source+Sans+Pro&display=swap'}],
   ],
-  theme: '@lando/vuepress-docs-theme',
+  theme: '@lando/vuepress-theme-lando-docs',
   themeConfig: {
     logo: '/images/logo-pink-small.png',
     repo: 'lando/platformsh',
