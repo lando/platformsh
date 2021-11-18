@@ -13,7 +13,7 @@ jobs:
         leia-tests:
           - examples/elasticsearch-6.5
           - examples/elasticsearch-6.8
-          # - examples/elasticsearch-7.2
+          - examples/elasticsearch-7.2
           # - examples/elasticsearch-7.5
           # - examples/elasticsearch-7.7
           # - examples/elasticsearch-7.9
