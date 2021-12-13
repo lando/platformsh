@@ -33,3 +33,7 @@ dist
 .nyc_output
 coverage/
 
+# Vuepress
+.temp
+.cache
+_site
