@@ -23,7 +23,7 @@ module.exports = {
 
       // Build the postgresql
       const postgresql = {
-        image: `docker.registry.platform.sh/postgresql-${options.version}`,
+        image: `docker.registry.platform.sh/postgresql-${options.version}:legacy`,
         ports: [options.port],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,
