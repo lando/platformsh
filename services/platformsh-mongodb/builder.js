@@ -21,7 +21,7 @@ module.exports = {
 
       // Build the mongodb
       const mongodb = {
-        image: `docker.registry.platform.sh/mongodb-${options.version}:stable`,
+        image: `docker.registry.platform.sh/mongodb-${options.version}:staging`,
         ports: [options.port],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,

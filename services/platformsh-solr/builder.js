@@ -23,7 +23,7 @@ module.exports = {
 
       // Build the solr
       const solr = {
-        image: `docker.registry.platform.sh/solr-${options.version}:stable`,
+        image: `docker.registry.platform.sh/solr-${options.version}:staging`,
         ports: [options.port],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,

@@ -23,7 +23,7 @@ module.exports = {
 
       // Build varnish
       const varnish = {
-        image: `docker.registry.platform.sh/varnish-${options.version}:stable`,
+        image: `docker.registry.platform.sh/varnish-${options.version}:staging`,
         ports: options.moreHttpPorts,
         depends_on: backends,
         environment: {

@@ -18,7 +18,7 @@ module.exports = {
 
       // Build influxdb
       const influxdb = {
-        image: `docker.registry.platform.sh/influxdb-${options.version}:stable`,
+        image: `docker.registry.platform.sh/influxdb-${options.version}:staging`,
         ports: [options.port],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,

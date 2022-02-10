@@ -29,7 +29,7 @@ module.exports = {
 
       // Build the php
       const php = {
-        image: `docker.registry.platform.sh/php-${options.version}:stable`,
+        image: `docker.registry.platform.sh/php-${options.version}:staging`,
         volumes: options.volumes,
         ports: ['80'],
 
