@@ -21,7 +21,7 @@ module.exports = {
 
       // Build chrome-headless
       const chromeHeadless = {
-        image: `docker.registry.platform.sh/chrome-headless-${options.version}:legacy`,
+        image: `docker.registry.platform.sh/chrome-headless-${options.version}:stable`,
         ports: [options.port],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,

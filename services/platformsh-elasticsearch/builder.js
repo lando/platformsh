@@ -21,7 +21,7 @@ module.exports = {
       options.meUser = 'elasticsearch';
       // Build the elasticsearch
       const elasticsearch = {
-        image: `docker.registry.platform.sh/elasticsearch-${options.version}:legacy`,
+        image: `docker.registry.platform.sh/elasticsearch-${options.version}:stable`,
         ports: [options.port],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,

@@ -20,7 +20,7 @@ module.exports = {
 
       // Build rabbitmq
       const rabbitmq = {
-        image: `docker.registry.platform.sh/rabbitmq-${options.version}:legacy`,
+        image: `docker.registry.platform.sh/rabbitmq-${options.version}:stable`,
         ports: [options.port, options.httpPort],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,
