@@ -3,20 +3,60 @@ const {path} = require('@vuepress/utils');
 module.exports = {
   lang: 'en-US',
   title: 'Lando',
-  description: 'Lando Platform.sh Plugin Documentation',
+  description: 'Lando is the best local development environment option for Platform.sh, the fastest way to build modern web apps.',
+  base: '/platformsh/',
   head: [
-    ['link', {rel: 'icon', href: '/favicon.ico'}],
-    ['link', {rel: 'stylesheet', href: '/styles/overrides.css'}],
-    ['link', {rel: 'stylesheet', href: '//fonts.googleapis.com/css?family=Poppins:700|Source+Sans+Pro&display=swap'}],
+    ['link', {rel: 'icon', href: '/platformsh/favicon.ico', size: 'any'}],
+    ['link', {rel: 'icon', href: '/platformsh/favicon.svg', type: 'image/svg+xml'}],
+    ['link', {rel: 'preconnect', href: '//fonts.googleapis.com'}],
+    ['link', {rel: 'preconnect', href: '//fonts.gstatic.com', crossorigin: true}],
+    ['link', {rel: 'stylesheet', href: '//fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap'}],
   ],
-  theme: path.resolve(__dirname, 'theme'),
+  theme: '@lando/vuepress-theme-default-plus',
   themeConfig: {
-    logo: '/images/logo-pink-small.png',
-    navbar: [
-      {text: 'Getting Started', link: 'https://docs.lando.dev/basics/'},
-      {text: 'Config', link: '/config/lando.md'},
-      {text: 'Guides', link: '/guides/lando-101/lando-overview'},
-      {text: 'Help and Support', link: '/help/logs/'},
+    landoDocs: true,
+    logo: '/images/icon.svg',
+    canonicalUrl: 'https://docs.lando.dev',
+    docsDir: 'docs',
+    docsBranch: 'main',
+    repo: 'lando/platformsh',
+    sidebarHeader: {
+      enabled: true,
+      title: 'Platform.sh Plugin',
+      icon: '/images/pshicon.png',
+    },
+    sidebar: [
+      {
+        text: 'Overview',
+        link: '/index.md',
+      },
+      '/getting-started.md',
+      '/config.md',
+      '/tooling.md',
+      '/sync.md',
+      '/caveats.md',
+      {
+        text: 'Guides',
+        collapsible: true,
+        children: [
+          {
+            text: 'Adding more tooling commands',
+            link: '/adding-more-tooling.md',
+          },
+          {
+            text: 'Externally accessing services',
+            link: '/external-access.md',
+          },
+          {
+            text: 'Manually importing databases',
+            link: '/manually-importing-databases.md',
+          },
+        ],
+      },
+      '/support.md',
+      {text: 'Examples', link: 'https://github.com/lando/platformsh/tree/main/examples'},
+      {text: 'Release Notes', link: 'https://github.com/lando/platformsh/releases'},
+      '/development.md',
     ],
   },
 };
