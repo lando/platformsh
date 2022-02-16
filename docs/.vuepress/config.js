@@ -3,6 +3,7 @@ const {path} = require('@vuepress/utils');
 module.exports = {
   lang: 'en-US',
   title: 'Lando',
+  base: '/pirog/',
   description: 'Lando Platform.sh Plugin Documentation',
   head: [
     ['link', {rel: 'icon', href: '/favicon.ico'}],
