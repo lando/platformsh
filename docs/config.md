@@ -1,5 +1,9 @@
-# Configuration
+---
+title: Caveats
+description: Learn how to configure the Lando Platform.sh recipe.
+---
 
+# Configuration
 
 While Lando [recipes](https://docs.lando.dev/config/recipes.html) sets sane defaults so they work out of the box, they are also [configurable](https://docs.lando.dev/config/recipes.html#config).
 
@@ -22,7 +26,7 @@ Here are some details on how Lando interprets the various Platform.sh configurat
 
 ### routes.yaml
 
-Lando will load your [routes.yaml](https://docs.platform.sh/configuration/routes.html) and use for its own [proxy](https://docs.lando.dev/config/proxy.html) configuration.
+Lando will load your [routes.yaml](https://docs.platform.sh/configuration/routes.html) and use it for its own [proxy](https://docs.lando.dev/config/proxy.html) configuration.
 
 ```yaml
 # routes.yaml

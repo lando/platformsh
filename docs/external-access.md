@@ -1,7 +1,12 @@
 ---
 title: Externally accessing services
-description: Learn how to automatically populate guide content using the VuePress 2 Default Theme Plus.
+description: Learn how to externally access your Platform.sh services when running in Lando.
 guide: true
+mailchimp:
+  action: https://dev.us12.list-manage.com/subscribe/post?u=59874b4d6910fa65e724a4648&amp;id=613837077f
+  title: Want more Platfrom.sh guide content?
+  byline: Signup and we will send you a weekly blog digest of similar content to keep you satiated.
+  button: Sign me up!
 ---
 
 If you would instead like to connect to your database, or some other service, from your host using a GUI client like SequelPro, instead of via the Lando CLI you can run [`lando info`](https://docs.lando.dev/cli/info.html) and use the `external_connection` information and any relevant `creds` for the service you want to connect to.

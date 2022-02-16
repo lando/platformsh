@@ -1,3 +1,7 @@
+---
+description: Learn how to sync databases, files, relationships and mounts between your local Lando site and your remote Platform.sh site.
+---
+
 # Syncing
 
 Lando also provides wrapper commands called `lando pull` and `lando push`.

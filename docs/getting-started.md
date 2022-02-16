@@ -1,5 +1,5 @@
 ---
-description: The best local development environment option for Platform.sh, the fastest way to build modern web apps.
+description: Learn how to get started with the Lando Platform.sh recipe.
 ---
 
 # Getting Started
@@ -48,7 +48,9 @@ lando pull -r database -m web/sites/default/files
 lando info
 ```
 
-**Note that if your `platformsh` project requires environment variables set in the [Platform Management Console](https://docs.platform.sh/administration/web/configure-environment.html#settings) you will need to set those manually!** See the [Environment Variables](./config.md#environment-variables) section below for details.
+**Note that if your `platformsh` project requires environment variables set in the [Platform Management Console](https://docs.platform.sh/administration/web/configure-environment.html#settings) you will need to set those manually!**
+
+See the [Environment Variables](./config.md#environment-variables) section for details.
 
 ## Custom Installation
 

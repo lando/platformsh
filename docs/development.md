@@ -1,3 +1,9 @@
+---
+title: Development
+description: Learn how to develop and contribute to the Lando Platform.sh recipe
+---
+
+
 # Development
 
 This guide contains information to help onboard developers to work on the [Platform.sh](https://platform.sh) integration, hereafter referred to as "the plugin".

@@ -1,3 +1,7 @@
+---
+description: Learn about the various out-of-the-box tooling you get with the Lando Platform.sh recipe.
+---
+
 # Tooling
 
 ## Platform.sh CLI

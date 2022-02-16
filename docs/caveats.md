@@ -1,6 +1,6 @@
 ---
 title: Caveats
-description: Caveats
+description: Learn about caveats and known issues with the Lando Platform.sh recipe.
 ---
 
 # Caveats and known issues
