@@ -11,7 +11,7 @@ If you have a question or would like some community support we recommend you [jo
 
 ## GitHub
 
-If you'd like to report a bug or submit a feature request then please [use the issue queue](https://github.com/lando/vuepress-theme-default-plus.lando.dev/issues/new/choose) in this repo.
+If you'd like to report a bug or submit a feature request then please [use the issue queue](https://github.com/lando/platformsh/issues/new/choose) in this repo.
 
 ## Contact
 

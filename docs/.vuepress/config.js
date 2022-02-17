@@ -6,6 +6,7 @@ module.exports = {
   description: 'Lando is the best local development environment option for Platform.sh, the fastest way to build modern web apps.',
   base: '/platformsh/',
   head: [
+    ['meta', {name: 'viewport', content: 'width=device-width, initial-scale=1'}],
     ['link', {rel: 'icon', href: '/platformsh/favicon.ico', size: 'any'}],
     ['link', {rel: 'icon', href: '/platformsh/favicon.svg', type: 'image/svg+xml'}],
     ['link', {rel: 'preconnect', href: '//fonts.googleapis.com'}],
@@ -16,7 +17,6 @@ module.exports = {
   themeConfig: {
     landoDocs: true,
     logo: '/images/icon.svg',
-    canonicalUrl: 'https://docs.lando.dev',
     docsDir: 'docs',
     docsBranch: 'main',
     repo: 'lando/platformsh',
