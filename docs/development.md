@@ -118,6 +118,8 @@ yarn docs:dev
 yarn docs:build
 ```
 
+If you are more interested in the internals of the docs they use [VuePress2](https://v2.vuepress.vuejs.org/) and our [Special theme](https://vuepress-theme-default-plus.lando.dev).
+
 ## Testing
 
 It's best to familiarize yourself with how Lando [does testing](https://docs.lando.dev/contrib/contrib-testing.html) in general before proceeding.
