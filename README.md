@@ -62,23 +62,16 @@ config:
           max_allowed_packet: 63
 ```
 
-For complete usage docs you should check out [this](https://github.com/lando/platformsh/blob/main/docs/usage.md), particularly:
+For more info you should check out the [docs](https://docs.lando.dev/platformsh):
 
-* [Supported Services](https://github.com/lando/platformsh/blob/main/docs/usage.md#services-yaml)
-* [Environment variables](https://github.com/lando/platformsh/blob/main/docs/usage.md#environment)
-* [Syncing relationships and mounts with Platform.sh](https://github.com/lando/platformsh/blob/main/docs/usage.md#pulling-and-pushing-relationships-and-mounts)
-* [Caveats and known issues](https://github.com/lando/platformsh/blob/main/docs/usage.md#caveats-and-known-issues)
-
-## Examples and Guides
-
-If you are interested in working and tested examples and/or guides then check out both the [examples](https://github.com/lando/platformsh/tree/main/examples) and [guides](https://github.com/lando/platformsh/tree/main/guides) folders. Here is a subset of some of our most popular content:
-
-* [Multiapp project example]()
-* [Adding additional tooling]()
-* [Advanced database usage]()
-* [Kitchen sink example]()
-
-@TODO: need to link to the above when they are available
+* [Getting Started](https://docs.lando.dev/platformsh/getting-started.html)
+* [Configuration](https://docs.lando.dev/platformsh/config.html)
+* [Tooling](https://docs.lando.dev/platformsh/tooling.html)
+* [Syncing](https://docs.lando.dev/platformsh/syncing.html)
+* [Caveats](https://docs.lando.dev/platformsh/caveats.html)
+* [Guides](https://docs.lando.dev/platformsh/adding-more-tooling.html)
+* [Examples](https://github.com/lando/platformsh/tree/main/examples)
+* [Development](https://docs.lando.dev/platformsh/development.html)
 
 ## Issues, Questions and Support
 

@@ -3,7 +3,6 @@ title: Development
 description: Learn how to develop and contribute to the Lando Platform.sh recipe
 ---
 
-
 # Development
 
 This guide contains information to help onboard developers to work on the [Platform.sh](https://platform.sh) integration, hereafter referred to as "the plugin".
@@ -46,28 +45,16 @@ plugins:
 
 This tells Lando that _this_ app should use the source version of the `@lando/platformsh` plugin you cloned down in the installation. This is useful because it allows you to isolate development within this repo without interferring with any other apps using the stable and global version of the plugin.
 
-This means that you should _almost always_ develop against apps in the `examples` folder and that those apps should _always_ contain the above `plugins` config.
+This means that you should _almost always_ develop against apps in the `examples` folder and that those apps should _always_ contain the above `plugins` config. If you have an extant Lando application you want to develop against you can temporarily tell it to use the cloned down version of the plugin with the same line.
+
+```yaml
+plugins:
+  "@lando/platformsh": /path/to/plugin
+```
 
 Whether you are working off an existing example or a new one you should make sure that you are updating or adding new tests as you go. See [leia testing](#leia-tests) below for more detail.
 
-## Project Structure
-
-This plugin follows the same structure as any [Lando plugin](https://docs.lando.dev/contrib/contrib-plugins.html#plugins) but here is an explicit breakdown:
-
-```bash
-./
-|-- lib             Utilities and helpers, things that can easily be unit tested
-|-- recipes
-    |-- platformsh  The files to define the `platformsh` recipe and its `init` command
-|-- scripts         Helpers scripts that end up /helpers/ inside each container
-|-- services        Defines each platform.sh service eg `redis` or `php`
-|-- test            Unit tests
-|-- types           Defines the type/parent each above service can be
-|-- app.js          Modifications to the app runtime
-|-- index.js        Modifications to the Lando runtime
-```
-
-## Important things
+## Important Deviations
 
 Here are some things that deviate from Lando-normal that you should be aware of.
 
@@ -117,7 +104,19 @@ You will find the python source code in the following directories:
 
 ### Known issues and caveats
 
-We recommend reviewing the [known issues and caveats](https://github.com/lando/platformsh/blob/main/docs/usage.md#caveats-and-known-issues) in the usage documentation.
+We recommend reviewing the [known issues and caveats](./caveats.md) in the usage documentation.
+
+## Documentation
+
+If you want to help with contributing documentation here are some useful commands once you've cloned and installed the project.
+
+```bash
+# launch local docs site
+yarn docs:dev
+
+# build docs locally
+yarn docs:build
+```
 
 ## Testing
 

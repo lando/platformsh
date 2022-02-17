@@ -1,5 +1,5 @@
 ---
-title: Caveats
+title: Configuration
 description: Learn how to configure the Lando Platform.sh recipe.
 ---
 
