@@ -28,35 +28,35 @@ module.exports = {
     sidebar: [
       {
         text: 'Overview',
-        link: '/index.md',
+        link: '/index.html',
       },
-      '/getting-started.md',
-      '/config.md',
-      '/tooling.md',
-      '/sync.md',
-      '/caveats.md',
+      '/getting-started.html',
+      '/config.html',
+      '/tooling.html',
+      '/sync.html',
+      '/caveats.html',
       {
         text: 'Guides',
         collapsible: true,
         children: [
           {
             text: 'Adding more tooling commands',
-            link: '/adding-more-tooling.md',
+            link: '/adding-more-tooling.html',
           },
           {
             text: 'Externally accessing services',
-            link: '/external-access.md',
+            link: '/external-access.html',
           },
           {
             text: 'Manually importing databases',
-            link: '/manually-importing-databases.md',
+            link: '/manually-importing-databases.html',
           },
         ],
       },
-      '/support.md',
+      '/support.html',
       {text: 'Examples', link: 'https://github.com/lando/platformsh/tree/main/examples'},
       {text: 'Release Notes', link: 'https://github.com/lando/platformsh/releases'},
-      '/development.md',
+      '/development.html',
     ],
   },
 };
