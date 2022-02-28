@@ -1,6 +1,7 @@
 ---
 title: Platform.sh Lando Plugin
 description: The best local development environment option for Platform.sh, the fastest way to build modern web apps.
+next: ./getting-started.html
 ---
 
 # Platform.sh
