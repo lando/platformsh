@@ -123,7 +123,7 @@ Lando _should_ support Platform.sh's [multiple applications configurations](http
 
 If you have a multiple application setup then you will need to navigate into either the directory that contains the `.platform.app.yaml`  or the `source.root` specified in your `.platform/applications.yaml` file to access the relevant tooling for that app.
 
-This is how tooling works for our [multiapp example](https://github.com/lando/cli/tree/main/examples/platformsh-kitchensink).
+This is how tooling works for our [multiapp example](https://github.com/lando/platformsh/tree/main/examples/basics).
 
 ```bash
 # Get access to tooling for the "base" application
@@ -164,7 +164,7 @@ Note that `app` in the above example should correspond to the `name` of the Plat
 
 ## Environment variables
 
-Application containers running on Lando will also set up the same [PLATFORM_* provided environment variables](https://docs.platform.sh/development/variables.html#platformsh-provided-variables) so any service connection configuration, like connecting your Drupal site to `mysql` or `redis`, you use on Platform.sh with these variables _should_ also automatically work on Lando.
+Application containers running on Lando will also set up the same [PLATFORM_* provided environment variables](https://docs.platform.sh/development/variables.html) so any service connection configuration, like connecting your Drupal site to `mysql` or `redis`, you use on Platform.sh with these variables _should_ also automatically work on Lando.
 
 Lando _does not_ currently pull variables you have set up in the Platform.sh dashboard so you will need to add those manually.
 

@@ -55,14 +55,14 @@ There are some application settings and configuration that Platform.sh will auto
 
 For example if your project is based on the [Drupal 8 Template](https://github.com/platformsh-templates/drupal8) then Lando will set the `tmp` directory and set `skip_permissions_hardening` to `TRUE`.
 
-Lando will likely _not_ do this in the future in favor of a better solution but until then you can check out what we set over [here](https://github.com/lando/lando/blob/master/integrations/lando-platformsh/lib/overrides.js).
+Lando will likely _not_ do this in the future in favor of a better solution but until then you can check out what we set over [here](https://github.com/lando/platformsh/blob/main/lib/overrides.js).
 
 ## Memory limits
 
 Some services eg Elasticsearch require A LOT of memory to run. Sometimes this memory limit is above the defaults set by Docker Desktop. If you are trying to start an app with memory intensive services and it is hanging try to bump the resources allocated to Docker Desktop and try again. See the below docs:
 
-* [Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/#resources)
-* [Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/#resources)
+* [Docker Desktop for Mac](https://docs.docker.com/desktop/mac/install/)
+* [Docker Desktop for Windows](https://docs.docker.com/desktop/windows/install/)
 
 ## Xdebug
 
