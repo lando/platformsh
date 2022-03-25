@@ -1,5 +1,5 @@
 name: app
-type: "php:7.3"
+type: "php:7.4"
 build:
   flavor: composer
 runtime:
@@ -12,3 +12,6 @@ web:
       passthru: "/index.php"
 relationships:
   mongo: "mongo:mongodb"
+dependencies:
+    php:
+        composer/composer: '^2'
