@@ -12,3 +12,6 @@ web:
       passthru: "/index.php"
 relationships:
   mongo: "mongo:mongodb"
+dependencies:
+    php:
+        composer/composer: '^2'
