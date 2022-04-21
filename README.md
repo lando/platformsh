@@ -10,31 +10,6 @@ This is the _official_ [Lando](https://lando.dev) plugin for [Platform.sh](https
 
 Of course, once a user is running their Platform.sh project with Lando they can take advantage of [all the other awesome development features](https://docs.lando.dev) Lando provides.
 
-## Installation
-
-This plugin is included with Lando by default. That means if you have Lando version `3.0.8` or higher then this plugin is already installed!
-
-However if you would like to manually install the plugin, update it to the bleeding edge or install a particular version then use the below. Note that this installation method requires Lando `3.5.0+`.
-
-```bash
-# Ensure you have a global plugins directory
-mkdir -p ~/.lando/plugins
-
-# Install plugin
-# NOTE: Modify the "yarn add @lando/platformsh" line to install a particular version eg
-# yarn add @lando/platform@0.5.2
-docker run --rm -it -v ${HOME}/.lando/plugins:/plugins -w /tmp node:14-alpine sh -c \
-  "yarn init -y \
-  && yarn add @lando/platformsh --production --flat --no-default-rc --no-lockfile --link-duplicates \
-  && yarn install --production --cwd /tmp/node_modules/@lando/platformsh \
-  && mkdir -p /plugins/@lando \
-  && mv --force /tmp/node_modules/@lando/platformsh /plugins/@lando/platformsh"
-
-# Rebuild the plugin cache
-lando --clear
-```
-
-You should be able to verify the plugin is installed by running `lando config --path plugins` and checking for `@lando/platformsh`. This command will also show you _where_ the plugin is being loaded from.
 
 ## Basic Usage
 
@@ -87,23 +62,16 @@ config:
           max_allowed_packet: 63
 ```
 
-For complete usage docs you should check out [this](https://github.com/lando/platformsh/blob/main/docs/usage.md), particularly:
+For more info you should check out the [docs](https://docs.lando.dev/platformsh):
 
-* [Supported Services](https://github.com/lando/platformsh/blob/main/docs/usage.md#services-yaml)
-* [Environment variables](https://github.com/lando/platformsh/blob/main/docs/usage.md#environment)
-* [Syncing relationships and mounts with Platform.sh](https://github.com/lando/platformsh/blob/main/docs/usage.md#pulling-and-pushing-relationships-and-mounts)
-* [Caveats and known issues](https://github.com/lando/platformsh/blob/main/docs/usage.md#caveats-and-known-issues)
-
-## Examples and Guides
-
-If you are interested in working and tested examples and/or guides then check out both the [examples](https://github.com/lando/platformsh/tree/main/examples) and [guides](https://github.com/lando/platformsh/tree/main/guides) folders. Here is a subset of some of our most popular content:
-
-* [Multiapp project example]()
-* [Adding additional tooling]()
-* [Advanced database usage]()
-* [Kitchen sink example]()
-
-@TODO: need to link to the above when they are available
+* [Getting Started](https://docs.lando.dev/platformsh/getting-started.html)
+* [Configuration](https://docs.lando.dev/platformsh/config.html)
+* [Tooling](https://docs.lando.dev/platformsh/tooling.html)
+* [Syncing](https://docs.lando.dev/platformsh/syncing.html)
+* [Caveats](https://docs.lando.dev/platformsh/caveats.html)
+* [Guides](https://docs.lando.dev/platformsh/adding-more-tooling.html)
+* [Examples](https://github.com/lando/platformsh/tree/main/examples)
+* [Development](https://docs.lando.dev/platformsh/development.html)
 
 ## Issues, Questions and Support
 
