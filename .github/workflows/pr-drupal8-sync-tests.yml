@@ -10,6 +10,7 @@ jobs:
       TERM: xterm
       PLATFORMSH_CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}
     strategy:
+      fail-fast: false
       matrix:
         leia-tests:
           - examples/drupal8-sync
