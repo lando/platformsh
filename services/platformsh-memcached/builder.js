@@ -21,7 +21,7 @@ module.exports = {
 
       // Build the memcached
       const memcached = {
-        image: `docker.registry.platform.sh/memcached-${options.version}`,
+        image: `docker.registry.platform.sh/memcached-${options.version}:legacy`,
         ports: [options.port],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,

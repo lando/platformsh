@@ -21,7 +21,7 @@ module.exports = {
 
       // Build kafka
       const kafka = {
-        image: `docker.registry.platform.sh/kafka-${options.version}`,
+        image: `docker.registry.platform.sh/kafka-${options.version}:legacy`,
         ports: [options.port],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,

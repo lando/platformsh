@@ -22,7 +22,7 @@ module.exports = {
 
       // Build the redis
       const redis = {
-        image: `docker.registry.platform.sh/${options.platformsh.type}-${options.version}`,
+        image: `docker.registry.platform.sh/${options.platformsh.type}-${options.version}:legacy`,
         ports: [options.port],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,

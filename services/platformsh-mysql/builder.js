@@ -22,7 +22,7 @@ module.exports = {
 
       // Build the mysql
       const mysql = {
-        image: `docker.registry.platform.sh/mysql-${options.version}`,
+        image: `docker.registry.platform.sh/mysql-${options.version}:legacy`,
         ports: [options.port],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,

@@ -22,7 +22,7 @@ module.exports = {
 
       // Build the mariadb
       const mariadb = {
-        image: `docker.registry.platform.sh/mariadb-${options.version}`,
+        image: `docker.registry.platform.sh/mariadb-${options.version}:legacy`,
         ports: [options.port],
         environment: {
           LANDO_WEBROOT_USER: options.meUser,
