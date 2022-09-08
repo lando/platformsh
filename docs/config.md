@@ -24,7 +24,7 @@ Of course, since this is still a Lando recipe you can continue to [extend and ov
 
 Here are some details on how Lando interprets the various Platform.sh configuration files:
 
-### routes.yaml
+## routes.yaml
 
 Lando will load your [routes.yaml](https://docs.platform.sh/configuration/routes.html) and use it for its own [proxy](https://docs.lando.dev/config/proxy.html) configuration.
 
@@ -55,7 +55,7 @@ https://www.my-app.lndo.site
 
 Note, however, that Lando will **only** use routes that contain the `{default}` placeholder. FQDN routes will not be used since these generally will be pointing at your production site and not Lando. If you would still like to use these routes then we recommend you review our [proxy](https://docs.lando.dev/config/proxy.html) docs on how to add them back into the mix.
 
-### services.yaml
+## services.yaml
 
 Lando will load your [services.yaml](https://docs.platform.sh/configuration/services.html) and spin up _exactly_ the same things there as you have running on your Platform.sh site, including any advanced configuration options you may have specified for each like `schemas`, `endpoints`, `extensions`, `properties`, etc.
 
@@ -103,7 +103,7 @@ We currently only support the below services and we _highly recommend_ you consu
 
 Also note that you will need to run a `lando rebuild` for configuration changes to manifest in the same way you normally would for config changes to your Landofile.
 
-### .platform.app.yaml
+## .platform.app.yaml
 
 Lando will load your [.platform.app.yaml](https://docs.platform.sh/configuration/app.html) and spin up _exactly_ the same things there as you have running on your Platform.sh site. This means that similarly to Platform.sh Lando will also:
 
@@ -117,13 +117,13 @@ We currently only support the below langauges and we _highly recommend_ you cons
 
 Also note that you will need to run a `lando rebuild` for configuration changes to manifest in the same way you normally would for config changes to your Landofile.
 
-### Multiple applications
+## Multiple applications
 
 Lando _should_ support Platform.sh's [multiple applications configurations](https://docs.platform.sh/configuration/app/multi-app.html) although they are not extensively tested at this point so YMMV.
 
 If you have a multiple application setup then you will need to navigate into either the directory that contains the `.platform.app.yaml`  or the `source.root` specified in your `.platform/applications.yaml` file to access the relevant tooling for that app.
 
-This is how tooling works for our [multiapp example](https://github.com/lando/cli/tree/main/examples/platformsh-kitchensink).
+This is how tooling works for our [multiapp example](https://github.com/lando/platformsh/tree/main/examples/basics).
 
 ```bash
 # Get access to tooling for the "base" application
@@ -138,7 +138,7 @@ cd ../php
 lando
 ```
 
-### Overriding config
+## Overriding config
 
 Platform.sh application language and service configuration is generally optimized for production. While these values are usually also suitable for local development purposes Lando also provides a mechanism to override _both_ application language and service configuration with values that make more sense for local.
 
@@ -164,7 +164,7 @@ Note that `app` in the above example should correspond to the `name` of the Plat
 
 ## Environment variables
 
-Application containers running on Lando will also set up the same [PLATFORM_* provided environment variables](https://docs.platform.sh/development/variables.html#platformsh-provided-variables) so any service connection configuration, like connecting your Drupal site to `mysql` or `redis`, you use on Platform.sh with these variables _should_ also automatically work on Lando.
+Application containers running on Lando will also set up the same [PLATFORM_* provided environment variables](https://docs.platform.sh/development/variables.html) so any service connection configuration, like connecting your Drupal site to `mysql` or `redis`, you use on Platform.sh with these variables _should_ also automatically work on Lando.
 
 Lando _does not_ currently pull variables you have set up in the Platform.sh dashboard so you will need to add those manually.
 

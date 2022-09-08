@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1dfc948b131f6c2c8b0ff81511f2d375",
+    "content-hash": "63dc102c2388dbed8b460c6f3115c935",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
-            "version": "1.11.99.4",
+            "version": "1.11.99.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/package-versions-deprecated.git",
-                "reference": "b174585d1fe49ceed21928a945138948cb394600"
+                "reference": "b4f54f74ef3453349c24a845d22392cd31e65f1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/b174585d1fe49ceed21928a945138948cb394600",
-                "reference": "b174585d1fe49ceed21928a945138948cb394600",
+                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/b4f54f74ef3453349c24a845d22392cd31e65f1d",
+                "reference": "b4f54f74ef3453349c24a845d22392cd31e65f1d",
                 "shasum": ""
             },
             "require": {
@@ -73,7 +73,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-13T08:41:34+00:00"
+            "time": "2022-01-17T14:14:24+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",
@@ -231,16 +231,16 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.23.1",
+            "version": "v1.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "1100343ed1a92e3a38f9ae122fc0eb21602547be"
+                "reference": "4407588e0d3f1f52efb65fbe92babe41f37fe50c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/1100343ed1a92e3a38f9ae122fc0eb21602547be",
-                "reference": "1100343ed1a92e3a38f9ae122fc0eb21602547be",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/4407588e0d3f1f52efb65fbe92babe41f37fe50c",
+                "reference": "4407588e0d3f1f52efb65fbe92babe41f37fe50c",
                 "shasum": ""
             },
             "require": {
@@ -257,12 +257,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php80\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php80\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -307,7 +307,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-28T13:41:28+00:00"
+            "time": "2022-03-04T08:16:47+00:00"
         }
     ],
     "packages-dev": [],
