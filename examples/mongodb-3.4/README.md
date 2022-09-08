@@ -25,7 +25,7 @@ Run the following commands to validate things are rolling as they should.
 
 ```bash
 # Should have the expected platformsh containers and images
-docker ps --filter label=com.docker.compose.project=landoplatformshmongodb34 | grep docker.registry.platform.sh/php-7.3 | grep landoplatformshmongodb34_app_1
+docker ps --filter label=com.docker.compose.project=landoplatformshmongodb34 | grep docker.registry.platform.sh/php-7.4 | grep landoplatformshmongodb34_app_1
 docker ps --filter label=com.docker.compose.project=landoplatformshmongodb34 | grep docker.registry.platform.sh/mongodb-3.4 | grep landoplatformshmongodb34_mongo_1
 
 # Should be running application containers as web
@@ -35,7 +35,7 @@ lando ssh -s app -c "id" | grep web
 lando ssh -s app -c "platform -V"
 
 # Should be running the correct php version
-lando ssh -s app -c "php --version" | grep 7.3.
+lando ssh -s app -c "php --version" | grep 7.4.
 
 # Should be running all mongodb containers as mongodb
 lando ssh -s mongo -c "id" | grep mongodb
