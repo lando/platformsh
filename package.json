@@ -10,11 +10,15 @@
   "keywords": [
     "lando",
     "lando-plugin",
+    "lando-recipe",
+    "lando-hosting-integration",
     "platformsh"
   ],
   "engines": {
     "node": ">=14.0.0"
   },
+  "bundledDependencies": true,
+  "lando": {},
   "main": "index.js",
   "nyc": {
     "include": [
