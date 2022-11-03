@@ -5,43 +5,42 @@ description: Learn about caveats and known issues with the Lando Platform.sh rec
 
 # Caveats and known issues
 
-Since this is a currently an `beta` release there are a few known issues, and workarounds, to be aware of. We also recommend you consult GitHub for other [Platform.sh tagged issues](https://github.com/lando/lando/issues?q=is%3Aopen+is%3Aissue+label%3Aplatformsh
-).
+Since this is a `beta` release, there are a few known issues and workarounds to be aware of. We also recommend that you consult GitHub for [Platform.sh issues](https://github.com/lando/platformsh/issues).
 
-We also _highly encourage_ you to [post an issue](https://github.com/lando/lando/issues/new/choose) if you see a problem that doesn't already have an issue.
+If you encounter a problem that doesn't already have an issue, we _highly encourage_ you to [post an issue](https://github.com/lando/platformsh/issues/new/choose).
 
 ## `$HOME` considerations
 
-Platform.sh sets `$HOME` to `/app` by default. This makes sense in a read-only hosting context but is problematic for local development since this is also where your `git` repository lives and you probably don't want to accidentally commit your `$HOME/.composer` cache into your repo.
+Platform.sh sets `$HOME` to `/app` by default. This makes sense in a read-only hosting context but is problematic for local development because this is also where your `git` repository lives and you probably don't want to accidentally commit your `$HOME/.composer` cache into your repo.
 
 Lando changes this behavior and sets `$HOME` to its own default of `/var/www` for most _user initiated_ commands and automatic build steps.
 
-It also will override any `PLATFORM_VARIABLES` that should be set differently for local dev. For a concrete example of this Platform.sh's Drupal 8 template will set the Drupal `/tmp` directory to `/app/tmp`, Lando will instead set this to `/tmp`.
+Lando also will override any `PLATFORM_VARIABLES` that should be set differently for local dev. For example, Platform.sh's Drupal 8 template will set the Drupal `/tmp` directory to `/app/tmp`, but Lando will instead set this to `/tmp`.
 
-However, it's _probable_ at this early stage that we have not caught all the places where we need to do both of the above. As a result you probably want to:
+However, it's _probable_ at this early stage that we have not caught all the places where we need to do both of the above. As a result, you probably want to:
 
 ### 1. Look out for caches, configs, or other files that might normally end up in `$HOME`.
 
-Do you due diligence and make sure you `git status` before you `git add`. If you see something that shouldn't be there [let us know](https://github.com/lando/lando/issues/new/choose) and then add it to your `.gitignore` until we have resolved it.
+Do your due diligence and be sure to `git status` before `git add`. If you see something that shouldn't be there, [let us know](https://github.com/lando/platformsh/issues/new/choose) and then add it to your `.gitignore` until we resolve the issue.
 
 
-### 2. Consider LANDO specific configuration
+### 2. Consider Lando-specific configuration
 
-If you notice your application is _not working quite right_ it's possible you need to tweak some of the defaults for your application's configuration so they are set differently on Lando. We recommend you do something like the below snippet.
+If you notice your application is _not working quite right_, you may need to tweak some of the defaults for your application's configuration for Lando. We recommend you do something like the below snippet.
 
 `settings.local.php`
 
 ```php
 $platformsh = new \Platformsh\ConfigReader\Config();
 
-if ($config->environment === 'lando') {
+if ($platformsh->environment === 'lando') {
   $settings['file_private_path'] = '/tmp';
   $config['system.file']['path']['temporary'] = '/tmp';
 }
 
 ```
 
-Note that the above is simply meant to be illustrative.
+This is just an example; your specific configuration needs will be different.
 
 ## Redirects
 
