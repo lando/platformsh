@@ -5,9 +5,9 @@ description: Learn about caveats and known issues with the Lando Platform.sh rec
 
 # Caveats and known issues
 
-Since this is a `beta` release, there are a few known issues and workarounds to be aware of. We also recommend that you consult GitHub for [Platform.sh tagged issues](https://github.com/lando/lando/issues?q=is%3Aopen+is%3Aissue+label%3Aplatformsh).
+Since this is a `beta` release, there are a few known issues and workarounds to be aware of. We also recommend that you consult GitHub for [Platform.sh issues](https://github.com/lando/platformsh/issues).
 
-If you encounter a problem that doesn't already have an issue, we _highly encourage_ you to [post an issue](https://github.com/lando/lando/issues/new/choose).
+If you encounter a problem that doesn't already have an issue, we _highly encourage_ you to [post an issue](https://github.com/lando/platformsh/issues/new/choose).
 
 ## `$HOME` considerations
 
@@ -21,7 +21,7 @@ However, it's _probable_ at this early stage that we have not caught all the pla
 
 ### 1. Look out for caches, configs, or other files that might normally end up in `$HOME`.
 
-Do your due diligence and be sure to `git status` before `git add`. If you see something that shouldn't be there, [let us know](https://github.com/lando/lando/issues/new/choose) and then add it to your `.gitignore` until we resolve the issue.
+Do your due diligence and be sure to `git status` before `git add`. If you see something that shouldn't be there, [let us know](https://github.com/lando/platformsh/issues/new/choose) and then add it to your `.gitignore` until we resolve the issue.
 
 
 ### 2. Consider Lando-specific configuration
@@ -54,7 +54,7 @@ There are some application settings and configuration that Platform.sh will auto
 
 For example if your project is based on the [Drupal 8 Template](https://github.com/platformsh-templates/drupal8) then Lando will set the `tmp` directory and set `skip_permissions_hardening` to `TRUE`.
 
-Lando will likely _not_ do this in the future in favor of a better solution but until then you can check out what we set over [here](https://github.com/lando/lando/blob/master/integrations/lando-platformsh/lib/overrides.js).
+Lando will likely _not_ do this in the future in favor of a better solution but until then you can check out what we set over [here](https://github.com/lando/platformsh/blob/main/lib/overrides.js).
 
 ## Memory limits
 
