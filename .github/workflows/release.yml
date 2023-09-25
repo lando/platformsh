@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       TERM: xterm
-      PRERELEASE_TAG: edge
+      PRERELEASE_TAG: 3-dev
     strategy:
       matrix:
         os:
