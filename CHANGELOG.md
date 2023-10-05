@@ -1,3 +1,6 @@
+## v0.10.0 - [October 5, 2023](https://github.com/lando/platformsh/releases/tag/v0.10.0)
+* Added a "wait for user" script to ensure user is loaded before cloning repo. [lando/core#71](https://github.com/lando/core/pull/71)
+
 ## v0.9.0 - [July 3, 2023](https://github.com/lando/platformsh/releases/tag/v0.9.0)
   * Removed bundle-dependencies and version-bump-prompt from plugin.
   * Updated package to use prepare-release-action.
