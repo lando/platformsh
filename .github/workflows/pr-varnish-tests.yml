@@ -11,11 +11,11 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - examples/varnish-6.3
-          - examples/varnish-6.0
-          - examples/varnish-5.2
+          - varnish-6.3
+          - varnish-6.0
+          - varnish-5.2
           # @NOTE: the varnish 5.1 image is actually the varnish 5.2 image as well
-          # - examples/varnish-5.1
+          # - varnish-5.1
 
         lando-versions:
           - 3-dev

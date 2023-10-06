@@ -11,12 +11,12 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - examples/redis-6.0
-          - examples/redis-5.0
-          - examples/redis-4.0
-          - examples/redis-3.2
-          - examples/redis-3.0
-          - examples/redis-2.8
+          - redis-6.0
+          - redis-5.0
+          - redis-4.0
+          - redis-3.2
+          - redis-3.0
+          - redis-2.8
         lando-versions:
           - 3-dev
         os:

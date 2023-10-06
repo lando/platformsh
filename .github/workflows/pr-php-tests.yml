@@ -11,15 +11,15 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - examples/php-8.0
-          - examples/php-7.4
-          - examples/php-7.3
-          - examples/php-7.2
-          - examples/php-7.1
-          - examples/php-7.0
-          - examples/php-5.6
-          - examples/php-5.5
-          # - examples/php-5.4
+          - php-8.0
+          - php-7.4
+          - php-7.3
+          - php-7.2
+          - php-7.1
+          - php-7.0
+          - php-5.6
+          - php-5.5
+          # - php-5.4
         lando-versions:
           - 3-dev
         os:

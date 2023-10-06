@@ -11,8 +11,8 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - examples/memcached-1.6
-          - examples/memcached-1.5
+          - memcached-1.6
+          - memcached-1.5
           # - examples/memcached-1.4
         lando-versions:
           - 3-dev

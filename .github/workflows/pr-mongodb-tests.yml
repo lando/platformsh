@@ -11,10 +11,10 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - examples/mongodb-3.6
-          - examples/mongodb-3.4
-          - examples/mongodb-3.2
-          - examples/mongodb-3.0
+          - mongodb-3.6
+          - mongodb-3.4
+          - mongodb-3.2
+          - mongodb-3.0
         lando-versions:
           - 3-dev
         os:

@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - examples/drupal8-sync
+          - drupal8-sync
         lando-versions:
           - 3-dev
         os:

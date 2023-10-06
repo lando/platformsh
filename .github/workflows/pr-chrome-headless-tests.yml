@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - examples/chrome-headless-73
+          - chrome-headless-73
         lando-versions:
           - 3-dev
         os:
