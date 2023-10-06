@@ -143,6 +143,7 @@ module.exports = {
           }));
         }},
         {name: 'reload-keys', cmd: '/helpers/load-keys.sh --silent', user: 'root'},
+        {name: 'wait-for-user', cmd: '/helpers/psh-wait-for-user.sh'},
         {
           name: 'clone-repo',
           cmd: options => `/helpers/psh-clone.sh ${options['url']} ${options['ssh']} ${options['token']}`,
