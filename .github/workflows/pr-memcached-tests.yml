@@ -49,8 +49,6 @@ jobs:
         run: |
           lando version
           lando config --path plugins | grep platformsh | grep /home/runner/work/platformsh/platformsh || (echo "::error:: Not dogfooding this plugin correctly!" && exit 1)
-          cd ${{ matrix.leia-tests }}
-          lando config --path plugins | grep platformsh | grep dir | grep /home/runner/work/platformsh/platformsh || (echo "::error:: Not dogfooding this plugin correctly!" && exit 1)
       - name: Run Leia Tests
         uses: lando/run-leia-action@v2
         with:
