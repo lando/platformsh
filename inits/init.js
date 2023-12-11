@@ -5,7 +5,7 @@ const _ = require('lodash');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const utils = require('./../../lib/utils');
+const utils = require('./../lib/utils');
 const PlatformshApiClient = require('platformsh-client').default;
 
 // Platformsh
