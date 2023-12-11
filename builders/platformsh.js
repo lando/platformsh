@@ -2,11 +2,11 @@
 
 // Modules
 const _ = require('lodash');
-const {getLandoServices} = require('./../../lib/services');
-const {getLandoProxyRoutes} = require('./../../lib/proxy');
-const {getPlatformPull} = require('./../../lib/pull');
-const {getPlatformPush} = require('./../../lib/push');
-const tooling = require('./../../lib/tooling');
+const {getLandoServices} = require('./../lib/services');
+const {getLandoProxyRoutes} = require('./../lib/proxy');
+const {getPlatformPull} = require('./../lib/pull');
+const {getPlatformPush} = require('./../lib/push');
+const tooling = require('./../lib/tooling');
 
 /*
  * Build Platformsh
