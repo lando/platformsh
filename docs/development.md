@@ -5,7 +5,7 @@ description: Learn how to develop and contribute to the Lando Platformsh service
 
 # Development
 
-This guide contains information to help onboard developers to work on the [platformsh](https://platformsh.microsoft.com/en-us/) integration, hereafter referred to as *the plugin*.
+This guide contains information to help onboard developers to work on the [platformsh](https://platform.sh/) integration, hereafter referred to as *the plugin*.
 
 ## Requirements
 

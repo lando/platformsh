@@ -4,6 +4,10 @@ description: The best local development environment option for Platform.sh, the 
 next: ./getting-started.html
 ---
 
+::: warning
+The Platform.sh plugin is unsupported, so YMMV.
+:::
+
 # Platform.sh
 
 [Platform.sh](https://platform.sh/) is the end-to-end web platform for agile teams. With it you can build, evolve, and scale your website fleet—with zero infrastructure management investment. Get hosting, CI/CD, automated updates, global 24x7 support. And much more.

@@ -29,9 +29,14 @@ function sidebar() {
       text: 'Introduction',
       collapsed: false,
       items: [
-        {text: 'Overview', link: '/'},
+        {text: 'Introduction', link: '/'},
         {text: 'Installation', link: '/install'},
-        {text: 'Usage', link: '/config'},
+        {text: 'Getting Started', link: '/getting-started'},
+        {text: 'Configuration', link: '/config'},
+        {text: 'Tooling', link: '/tooling'},
+        {text: 'Syncing', link: '/sync'},
+        {text: 'Lifecycle', link: '/lifecycle'},
+        {text: 'Caveats', link: '/caveats'},
       ],
     },
     {
@@ -51,6 +56,7 @@ function sidebar() {
         {text: 'Contact Us', link: '/support'},
       ],
     },
+    {text: 'Guides', link: '/guides', activeMatch: '/guides'},
     {text: 'Examples', link: 'https://github.com/lando/platformsh/tree/main/examples'},
   ];
 };
