@@ -1,21 +1,11 @@
 ---
-title: Help and Support
-description: Get help with and support for the Lando Platform.sh recipe.
+title: Contact Us
+description: Get help and support for the Lando Platformsh Plugin
 ---
 
-# Help and Support
+# Contact Us
 
-## Slack
-
-If you have a question or would like some community support we recommend you [join the Lando community on Slack](https://launchpass.com/devwithlando). It's also probably a good idea to join the [Platform.sh one](https://chat.platform.sh/) as well.
-
-## GitHub
-
-If you'd like to report a bug or submit a feature request then please [use the issue queue](https://github.com/lando/platformsh/issues/new/choose) in this repo.
-
-## Contact
-
-If you need priority and dedicated support, expediated bug fixes or more features then please contact us below:
+If you need priority and dedicated support, expediated bug fixes or more features then please contact us below.
 
 <form class="netlify" name="contact" method="POST" netflify data-netlify="true">
   <input type="hidden" name="form-name" value="contact" />

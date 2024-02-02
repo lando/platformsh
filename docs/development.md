@@ -1,35 +1,28 @@
 ---
 title: Development
-description: Learn how to develop and contribute to the Lando Platform.sh recipe
+description: Learn how to develop and contribute to the Lando Platformsh service
 ---
 
 # Development
 
-This guide contains information to help onboard developers to work on the [Platform.sh](https://platform.sh) integration, hereafter referred to as "the plugin".
+This guide contains information to help onboard developers to work on the [platformsh](https://platformsh.microsoft.com/en-us/) integration, hereafter referred to as *the plugin*.
 
 ## Requirements
 
 At the very least you will need to have the following installed:
 
-* [Lando 3.5.0+](https://docs.lando.dev/basics/installation.html), preferably installed [from source](https://docs.lando.dev/basics/installation.html#from-source).
+* [Lando 3.21.0+](https://docs.lando.dev/getting-started/installation.html) preferably installed [from source](https://docs.lando.dev/getting-started/installation.html#from-source).
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-
-While not a hard requirement it's also probably a good idea to install both `node` 14 and `yarn`
-
-* [Node 14](https://nodejs.org/dist/latest-v14.x/)
-* [Yarn](https://classic.yarnpkg.com/lang/en/docs/install)
+* [Node 18](https://nodejs.org/dist/latest-v18.x/)
 
 ## Installation
 
-```bash
+```sh
 # Clone this repo
 git clone https://github.com/lando/platformsh.git && cd platformsh
 
-# Install dependencies with lando
-lando start
-
-# Or install them with yarn
-yarn
+# Install deps
+npm install
 ```
 
 ## Working
@@ -40,7 +33,7 @@ Note that each one of these examples contains the following section in its Lando
 
 ```yaml
 plugins:
-  "@lando/platformsh": ./../../
+  "@lando/platformsh": ../..
 ```
 
 This tells Lando that _this_ app should use the source version of the `@lando/platformsh` plugin you cloned down in the installation. This is useful because it allows you to isolate development within this repo without interferring with any other apps using the stable and global version of the plugin.
@@ -54,83 +47,34 @@ plugins:
 
 Whether you are working off an existing example or a new one you should make sure that you are updating or adding new tests as you go. See [leia testing](#leia-tests) below for more detail.
 
-## Important Deviations
-
-Here are some things that deviate from Lando-normal that you should be aware of.
-
-### Container lifecycle
-
-Platform.sh uses a more complex container lifecycle than Lando. That lifecycle is detailed [here](https://github.com/lando/platformsh/blob/main/docs/lifecycle.md).
-
-### Runtime configuration
-
-Most of the Platform.sh magic comes from a configuration file located in every service at `/run/config.json`. Lando generates and injects this file into each container.
-
-It is constructed by combining the Platform.sh configuration files eg `.platform.app.yaml`, `services.yaml` etc and some extra things.
-
-### Services and Types
-
-Inside of the `services` folder you will see where we define the Lando service that corresponds to each platform application container and service. Each service can either be a `platform-appserver` or a `plaform-service` and each of these are defined in the `types` folder.
-
-A `platform-appserver` means it is an applicaton container eg a supported Platform.sh "langauge" eg a `type` you can define in a `.platform.app.yaml` file.
-
-A `platform-service` means it something that goes in the `services.yaml`
-
-If you want to add support for a new platform service or application container simply add a new one into the `services` folder and make sure you set the `parent` to either `_platformsh_service` or `_platformsh_appserver` as appropriate.
-
-Also note that you will likely need to add it to `getLandoServiceType` which maps a `platform` `type `to a `lando` `type`.
-See https://github.com/lando/platformsh/blob/main/lib/services.js#L9 for `getLandoServiceType`.
-
-### SSH
-
-In `index.js` you will see that `lando` is overriding the core `lando ssh` command. This serves two main purposes:
-
-1. To select the default `service` to run on. The default service will be set to the closest `.platform.app.yaml` Lando can find. The `name`of the application in that file is also the name of the service.
-2. To make sure all `lando ssh` commands are prefixed with `/helpers/psh-exec.sh`
-
-`/helpers/psh-exec.sh` is a helper script that makes sure the user environment is set correctly before commands are run. Primarily this makes sure that `$HOME` is not set to `/app` and that the `PLATFORM_` variables are set before the command is run.
-
-### Application tooling
-
-Similarly in `index.js` all tooling commands are prefixed by `/helpers/psh-exec.sh`.
-
-### Troubleshooting Python Source in Platform.sh Containers
-
-When viewing container logs, you may see references to python files like `config.py`.
-
-You will find the python source code in the following directories:
-- `/etc/platform`
-- `/usr/lib/python2.7/dist-packages/platformsh`
-
-### Known issues and caveats
-
-We recommend reviewing the [known issues and caveats](./caveats.md) in the usage documentation.
-
 ## Documentation
 
 If you want to help with contributing documentation here are some useful commands once you've cloned and installed the project.
 
 ```bash
 # launch local docs site
-yarn docs:dev
+npm run docs:dev
 
 # build docs locally
-yarn docs:build
+npm run docs:build
+
+# preview built docs locally
+npm run docs:build
 ```
 
-If you are more interested in the internals of the docs they use [VuePress2](https://v2.vuepress.vuejs.org/) and our [Special theme](https://vuepress-theme-default-plus.lando.dev).
+If you are more interested in the internals of the docs they use [VitePress](https://vitepress.dev/) and our [SPECIAL THEME](https://vitepress-theme-default-plus.lando.dev).
 
 ## Testing
 
-It's best to familiarize yourself with how Lando [does testing](https://docs.lando.dev/contrib/contrib-testing.html) in general before proceeding.
+It's best to familiarize yourself with how Lando [does testing](https://docs.lando.dev/contrib/coder.html) in general before proceeding.
 
 ### Unit Tests
 
-Generally, unit testable code should be placed in `lib` and then the associated test in `tests` in the form `FILE-BEING-TESTED.spec.js`. Here is an example:
+Generally, unit testable code should be placed in `utils` and then the associated test in `tests` in the form `FILE-BEING-TESTED.spec.js`. Here is an example:
 
 ```bash
 ./
-|-- lib
+|-- utils
     |-- stuff.js
 |-- test
     |-- stuff.spec.js
@@ -140,7 +84,7 @@ And then you can run the tests with the below.
 
 ```bash
 # Run unit tests
-yarn test:unit
+npm run test:unit
 ```
 
 ### Leia Tests
@@ -167,21 +111,18 @@ Destroy tests
 lando destroy -y
 ```
 
-Note that the headers here are important and are defined in our `yarn generate:tests` script. The _Start up tests_ header specifies things that should run before the main series of tests. _Verification commands_ is the main body of tests and is required. _Destroy tests_ specifies any needed clean up commands to run.
+Note that the headers here are important. The _Start up tests_ header specifies things that should run before the main series of tests. _Verification commands_ is the main body of tests and is required. _Destroy tests_ specifies any needed clean up commands to run.
 
 If you check out the various READMEs in our [examples](https://github.com/lando/platformsh/tree/main/examples) you will notice that they are all Leia tests.
 
 Before running all or some of the tests you will need to generate them.
 
 ```bash
-# Generate tests
-yarn generate:tests
-
 # Run ALL the tests, this will likely take a long time
-yarn test:leia
+npm run test:leia
 
 # Run the tests for a single example
-yarn leia examples/mariadb-10.2/README.md -c 'Destroy tests'
+npx leia examples/mariadb-10.2/README.md -c 'Destroy tests'
 ```
 
 If you've created new testable examples then you will also need to let GitHub Actions know so they can run on pull requests.
@@ -194,15 +135,12 @@ To add the new tests to the workflow just modify `jobs.leia-tests.strategy.matri
 jobs:
   leia-tests:
     strategy:
+      fail-fast: false
       matrix:
-        leia-tests:
-            # This should be the filename, without .leia.js extension in the test directory
-            # NOTE that you will need to run yarn generate:tests to see these
-          - test: platform-sh-maria-db-10-1-example
-            # This should be the directory that the test was generated from
-            source: examples/mariadb-10.2
-          - test: platform-sh-maria-db-10-2-example
-            source: examples/mariadb-10.2
+        leia-test:
+          - examples/2.1
+          - examples/2.2
+
 ```
 
 Now open a pull request and the new tests should run!
@@ -217,11 +155,11 @@ Also note that if you create a "pre-release" it will tag the `npm` package with 
 
 ```bash
 # Will pull the most recent GitHub release
-yarn add @lando/platformsh
+npm install @lando/platformsh
 # Will pull the most recent GitHub pre-release
-yarn add @lando/platformsh@edge
+npm install @lando/platformsh@edge
 ```
 
 ## Contribution
 
-If you want to contribute code then just follow [this flow](https://guides.github.com/introduction/flow/).
+If you want to contribute code then just follow [this flow](https://docs.github.com/en/get-started/using-github/github-flow).
