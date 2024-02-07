@@ -485,10 +485,10 @@
     mocha "^5.2.0"
     object-hash "^2.2.0"
 
-"@lando/vitepress-theme-default-plus@^1.0.0-beta.23":
-  version "1.0.0-beta.23"
-  resolved "https://registry.npmjs.org/@lando/vitepress-theme-default-plus/-/vitepress-theme-default-plus-1.0.0-beta.23.tgz"
-  integrity sha512-rbv9oIWs4j2+hOkp2SrIdGbbd91JQBMT1GLQscuQ88AX5Fr2/1Wxz5CJG8Bvf33GUMhPsiVfMogsj0GOzqF42Q==
+"@lando/vitepress-theme-default-plus@^1.0.0-beta.26":
+  version "1.0.0-beta.26"
+  resolved "https://registry.npmjs.org/@lando/vitepress-theme-default-plus/-/vitepress-theme-default-plus-1.0.0-beta.26.tgz"
+  integrity sha512-gH4gMBCzLQEKLD//ige0c3uzavAfdFIVhn6rFEB7CQ3JdQ4Wm3bMn7fb5UqHEsot41ZE2OIx3tft82G4y35diA==
   dependencies:
     debug "^4.3.2"
     fast-glob "^3.3.2"
@@ -502,7 +502,6 @@
     node-html-parser "^6.1.12"
     sass "^1.69.7"
     timeago.js "^4.0.2"
-    vitepress "^1.0.0-rc.40"
     vitepress-plugin-tabs "^0.5.0"
     vue "^3.3.12"
 
@@ -637,17 +636,17 @@
   resolved "https://registry.npmjs.org/@rollup/rollup-darwin-arm64/-/rollup-darwin-arm64-4.9.6.tgz"
   integrity sha512-CqNNAyhRkTbo8VVZ5R85X73H3R5NX9ONnKbXuHisGWC0qRbTTxnF1U4V9NafzJbgGM0sHZpdO83pLPzq8uOZFw==
 
-"@shikijs/core@^1.0.0-beta.3", "@shikijs/core@1.0.0-beta.3":
-  version "1.0.0-beta.3"
-  resolved "https://registry.npmjs.org/@shikijs/core/-/core-1.0.0-beta.3.tgz"
-  integrity sha512-SCwPom2Wn8XxNlEeqdzycU93SKgzYeVsedjqDsgZaz4XiiPpZUzlHt2NAEQTwTnPcHNZapZ6vbkwJ8P11ggL3Q==
+"@shikijs/core@^1.0.0-rc.0", "@shikijs/core@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@shikijs/core/-/core-1.0.0.tgz"
+  integrity sha512-UMKGMZ+8b88N0/n6DWwWth1PHsOaxjW+R2u+hzSiargZWTv+l3s1l8dhuIxUSsEUPlBDKLs2CSMiFZeviKQM1w==
 
-"@shikijs/transformers@^1.0.0-beta.3":
-  version "1.0.0-beta.3"
-  resolved "https://registry.npmjs.org/@shikijs/transformers/-/transformers-1.0.0-beta.3.tgz"
-  integrity sha512-ASQQQqxW4dANxMGw4yGkTjtMSsUaRhImv/lzJEdfJ3/eP8TVlVYnohOFQVgpLjBBYGy9P0l0oKrlbjiGosTJ/Q==
+"@shikijs/transformers@^1.0.0-rc.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@shikijs/transformers/-/transformers-1.0.0.tgz"
+  integrity sha512-US0Sc0OdH7eGL64BtfvX3XezPfqhqF5mPyBFLlbZqSpFt2/emnv9GveAWzELGsIuvXoJ6N1RjeAdmQx5Xni6BQ==
   dependencies:
-    shiki "1.0.0-beta.3"
+    shiki "1.0.0"
 
 "@types/eslint-scope@^3.7.3":
   version "3.7.7"
@@ -3201,10 +3200,10 @@ postcss-selector-parser@^6.0.9:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
 
-postcss@^8.4.32, postcss@^8.4.33:
-  version "8.4.33"
-  resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.33.tgz"
-  integrity sha512-Kkpbhhdjw2qQs2O2DGX+8m5OVqEcbB9HRBvuYM9pgrjEFUg30A9LmXNlTAUj4S9kgtGyrMbTzVjH7E+s5Re2yg==
+postcss@^8.4.32, postcss@^8.4.33, postcss@^8.4.34:
+  version "8.4.35"
+  resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.35.tgz"
+  integrity sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==
   dependencies:
     nanoid "^3.3.7"
     picocolors "^1.0.0"
@@ -3494,12 +3493,12 @@ shebang-regex@^3.0.0:
   resolved "https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
-shiki@^1.0.0-beta.3, shiki@1.0.0-beta.3:
-  version "1.0.0-beta.3"
-  resolved "https://registry.npmjs.org/shiki/-/shiki-1.0.0-beta.3.tgz"
-  integrity sha512-z7cHTNSSvwGx2DfeLwjSNLo+HcVxifgNIzLm6Ye52eXcIwNHXT0wHbhy7FDOKSKveuEHBwt9opfj3Hoc8LE1Yg==
+shiki@^1.0.0-rc.0, shiki@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/shiki/-/shiki-1.0.0.tgz"
+  integrity sha512-rOUGJa3yFGgOrEoiELYxraoBbag3ZWf9bpodlr05Wjm85Scx8OIX+otdSefq9Pk7L47TKEzGodSQb4L38jka6A==
   dependencies:
-    "@shikijs/core" "1.0.0-beta.3"
+    "@shikijs/core" "1.0.0"
 
 signal-exit@^3.0.2:
   version "3.0.7"
@@ -3915,15 +3914,15 @@ vitepress-plugin-tabs@^0.5.0:
   resolved "https://registry.npmjs.org/vitepress-plugin-tabs/-/vitepress-plugin-tabs-0.5.0.tgz"
   integrity sha512-SIhFWwGsUkTByfc2b279ray/E0Jt8vDTsM1LiHxmCOBAEMmvzIBZSuYYT1DpdDTiS3SuJieBheJkYnwCq/yD9A==
 
-vitepress@^1.0.0-rc.27, vitepress@^1.0.0-rc.40, vitepress@^1.0.0-rc.41:
-  version "1.0.0-rc.41"
-  resolved "https://registry.npmjs.org/vitepress/-/vitepress-1.0.0-rc.41.tgz"
-  integrity sha512-PAEoIIc9J//k/Wg39C6k86hZpXPmLZjRiTBwieDNeYGdevD7xr5Ve8o1W/w+e9dtyQMkuvzgianEamXDX3aj7g==
+vitepress@^1.0.0-rc.27, vitepress@^1.0.0-rc.42:
+  version "1.0.0-rc.42"
+  resolved "https://registry.npmjs.org/vitepress/-/vitepress-1.0.0-rc.42.tgz"
+  integrity sha512-VeiVVXFblt/sjruFSJBNChMWwlztMrRMe8UXdNpf4e05mKtTYEY38MF5qoP90KxPTCfMQiKqwEGwXAGuOTK8HQ==
   dependencies:
     "@docsearch/css" "^3.5.2"
     "@docsearch/js" "^3.5.2"
-    "@shikijs/core" "^1.0.0-beta.3"
-    "@shikijs/transformers" "^1.0.0-beta.3"
+    "@shikijs/core" "^1.0.0-rc.0"
+    "@shikijs/transformers" "^1.0.0-rc.0"
     "@types/markdown-it" "^13.0.7"
     "@vitejs/plugin-vue" "^5.0.3"
     "@vue/devtools-api" "^7.0.14"
@@ -3932,7 +3931,7 @@ vitepress@^1.0.0-rc.27, vitepress@^1.0.0-rc.40, vitepress@^1.0.0-rc.41:
     focus-trap "^7.5.4"
     mark.js "8.11.1"
     minisearch "^6.3.0"
-    shiki "^1.0.0-beta.3"
+    shiki "^1.0.0-rc.0"
     vite "^5.0.12"
     vue "^3.4.15"
 
