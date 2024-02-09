@@ -28,7 +28,7 @@ lando rebuild -y
 
 ## Application Tooling
 
-Lando will also setup useful [tooling commands](https://docs.lando.dev/config/tooling.html) based on the `type` of your application container.
+Lando will also setup useful [tooling commands](https://docs.lando.dev/core/v3/tooling.html) based on the `type` of your application container.
 
 These can be used to both relevant tooling and utilities that exist _inside_ the application container. Here are the defaults we provide for the `php` application container.
 

@@ -5,9 +5,9 @@ description: Learn how to configure the Lando Platform.sh recipe.
 
 # Configuration
 
-While Lando [recipes](https://docs.lando.dev/config/recipes.html) sets sane defaults so they work out of the box, they are also [configurable](https://docs.lando.dev/config/recipes.html#config).
+While Lando [recipes](https://docs.lando.dev/core/v3/recipes.html) sets sane defaults so they work out of the box, they are also [configurable](https://docs.lando.dev/core/v3/recipes.html#config).
 
-Here are the configuration options, set to the default values, for this recipe's [Landofile](https://docs.lando.dev/config/lando.html). If you are unsure about where this goes or what this means we *highly recommend* scanning the [recipes documentation](https://docs.lando.dev/config/recipes.html) to get a good handle on how the magicks work.
+Here are the configuration options, set to the default values, for this recipe's [Landofile](https://docs.lando.dev/core/v3). If you are unsure about where this goes or what this means we *highly recommend* scanning the [recipes documentation](https://docs.lando.dev/core/v3/recipes.html) to get a good handle on how the magicks work.
 
 ```yaml
 recipe: platformsh
@@ -20,13 +20,13 @@ You will immediately notice that the default `platformsh` recipe Landofile does 
 
 This means that instead of modifying your Landofile to add, edit or remove the services, dependencies, build steps, etc you need to run your application you will want to modify your Platform.sh configuration according to their documentation and then do the usual `lando rebuild` for those changes to be applied.
 
-Of course, since this is still a Lando recipe you can continue to [extend and override](https://docs.lando.dev/config/recipes.html#extending-and-overriding-recipes) your Landofile in the usual way for any additional power you require locally.
+Of course, since this is still a Lando recipe you can continue to [extend and override](https://docs.lando.dev/core/v3/recipes.html#extending-and-overriding-recipes) your Landofile in the usual way for any additional power you require locally.
 
 Here are some details on how Lando interprets the various Platform.sh configuration files:
 
 ## routes.yaml
 
-Lando will load your [routes.yaml](https://docs.platform.sh/configuration/routes.html) and use it for its own [proxy](https://docs.lando.dev/config/proxy.html) configuration.
+Lando will load your [routes.yaml](https://docs.platform.sh/configuration/routes.html) and use it for its own [proxy](https://docs.lando.dev/core/v3/proxy.html) configuration.
 
 ```yaml
 # routes.yaml
@@ -53,7 +53,7 @@ http://www.my-app.lndo.site
 https://www.my-app.lndo.site
 ```
 
-Note, however, that Lando will **only** use routes that contain the `{default}` placeholder. FQDN routes will not be used since these generally will be pointing at your production site and not Lando. If you would still like to use these routes then we recommend you review our [proxy](https://docs.lando.dev/config/proxy.html) docs on how to add them back into the mix.
+Note, however, that Lando will **only** use routes that contain the `{default}` placeholder. FQDN routes will not be used since these generally will be pointing at your production site and not Lando. If you would still like to use these routes then we recommend you review our [proxy](https://docs.lando.dev/core/v3/proxy.html) docs on how to add them back into the mix.
 
 ## services.yaml
 
@@ -188,7 +188,7 @@ config:
 
 Perhaps more importantly, Lando **will not** automatically pull and set up environment variables that have been set in the [Platform Management Console](https://docs.platform.sh/administration/web/configure-environment.html#variables). This means that if your build hook requires these environment variables then it will likely fail.
 
-To remediate we recommend you manually add these variables into a local [environment file](https://docs.lando.dev/config/env.html#environment-files) that is also in your `.gitignore` and then `lando rebuild`. Here are some steps on how to do that.
+To remediate we recommend you manually add these variables into a local [environment file](https://docs.lando.dev/core/v3/env.html#environment-files) that is also in your `.gitignore` and then `lando rebuild`. Here are some steps on how to do that.
 
 1. Update your Landofile so it knows to load an environment file.
 
