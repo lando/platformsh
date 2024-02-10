@@ -6,7 +6,7 @@ description: Learn about the various out-of-the-box tooling you get with the Lan
 
 ## Platform.sh CLI
 
-Every application container will contain the [Platform.sh CLI](https://docs.platform.sh/development/cli.html); automatically authenticated for use with the account and project you selected during `lando init`.
+Every application container will contain the [Platform.sh CLI](https://docs.platform.sh/administration/cli.html); automatically authenticated for use with the account and project you selected during `lando init`.
 
 ```bash
 # Who am i?

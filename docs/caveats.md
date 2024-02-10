@@ -60,8 +60,8 @@ Lando will likely _not_ do this in the future in favor of a better solution but 
 
 Some services eg Elasticsearch require A LOT of memory to run. Sometimes this memory limit is above the defaults set by Docker Desktop. If you are trying to start an app with memory intensive services and it is hanging try to bump the resources allocated to Docker Desktop and try again. See the below docs:
 
-* [Docker Desktop for Mac](https://docs.docker.com/desktop/mac/install/)
-* [Docker Desktop for Windows](https://docs.docker.com/desktop/windows/install/)
+* [Docker Desktop for Mac](https://docs.docker.com/desktop/install/mac-install/)
+* [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/)
 
 ## Xdebug
 
