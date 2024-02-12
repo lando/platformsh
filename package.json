@@ -49,6 +49,7 @@
     "tar": "^6.1.11"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.23.10",
     "@lando/leia": "^0.6.4",
     "@lando/vitepress-theme-default-plus": "^1.0.0-beta.26",
     "chai": "^4.3.4",
