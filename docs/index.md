@@ -5,14 +5,14 @@ next: ./getting-started.html
 ---
 
 ::: warning
-The Platform.sh plugin is unsupported, so YMMV.
+The Platform.sh plugin is currently unsupported, so YMMV.
 :::
 
 # Platform.sh
 
-[Platform.sh](https://platform.sh/) is the end-to-end web platform for agile teams. With it you can build, evolve, and scale your website fleet—with zero infrastructure management investment. Get hosting, CI/CD, automated updates, global 24x7 support. And much more.
+[Platform.sh](https://platform.sh/) is an end-to-end web platform for agile teams.
 
-This Lando integration is currently in development and as such it has the following _serious caveats_:
+This Lando integration is currently **unsupported**. If your team is interested in sponsoring the integration, [contact us](./support.md)! For now...
 
 * This should be considered at an `beta` level of readiness
 * This has only been tested against Platform.sh's `php` project templates

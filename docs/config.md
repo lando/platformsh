@@ -26,7 +26,7 @@ Here are some details on how Lando interprets the various Platform.sh configurat
 
 ## routes.yaml
 
-Lando will load your [routes.yaml](https://docs.platform.sh/configuration/routes.html) and use it for its own [proxy](https://docs.lando.dev/core/v3/proxy.html) configuration.
+Lando will load your [routes.yaml](https://docs.platform.sh/define-routes.html) and use it for its own [proxy](https://docs.lando.dev/core/v3/proxy.html) configuration.
 
 ```yaml
 # routes.yaml
@@ -57,7 +57,7 @@ Note, however, that Lando will **only** use routes that contain the `{default}` 
 
 ## services.yaml
 
-Lando will load your [services.yaml](https://docs.platform.sh/configuration/services.html) and spin up _exactly_ the same things there as you have running on your Platform.sh site, including any advanced configuration options you may have specified for each like `schemas`, `endpoints`, `extensions`, `properties`, etc.
+Lando will load your [services.yaml](https://docs.platform.sh/add-services.html) and spin up _exactly_ the same things there as you have running on your Platform.sh site, including any advanced configuration options you may have specified for each like `schemas`, `endpoints`, `extensions`, `properties`, etc.
 
 This means that Lando knows how to handle more complex configuration such as in the below example:
 
@@ -88,24 +88,24 @@ db2:
 
 We currently only support the below services and we _highly recommend_ you consult the Platform.sh docs for how to properly configure each.
 
-* [Elasticsearch](https://docs.platform.sh/configuration/services/elasticsearch.html)
-* [Headless Chrome](https://docs.platform.sh/configuration/services/headless-chrome.html)
-* [InfluxDB](https://docs.platform.sh/configuration/services/influxdb.html)
-* [Kafka](https://docs.platform.sh/configuration/services/kafka.html)
-* [MariaDB/MySQL](https://docs.platform.sh/configuration/services/mysql.html)
-* [Memcached](https://docs.platform.sh/configuration/services/memcached.html)
-* [MongoDB](https://docs.platform.sh/configuration/services/mongodb.html)
-* [PostgreSQL](https://docs.platform.sh/configuration/services/postgresql.html)
-* [RabbitMQ](https://docs.platform.sh/configuration/services/rabbitmq.html)
-* [Redis](https://docs.platform.sh/configuration/services/redis.html)
-* [Solr](https://docs.platform.sh/configuration/services/solr.html)
-* [Varnish](https://docs.platform.sh/configuration/services/varnish.html)
+* [Elasticsearch](https://docs.platform.sh/add-services/elasticsearch.html)
+* [Headless Chrome](https://docs.platform.sh/add-services/headless-chrome.html)
+* [InfluxDB](https://docs.platform.sh/add-services/influxdb.html)
+* [Kafka](https://docs.platform.sh/add-services/kafka.html)
+* [MariaDB/MySQL](https://docs.platform.sh/add-services/mysql.html)
+* [Memcached](https://docs.platform.sh/add-services/memcached.html)
+* [MongoDB](https://docs.platform.sh/add-services/mongodb.html)
+* [PostgreSQL](https://docs.platform.sh/add-services/postgresql.html)
+* [RabbitMQ](https://docs.platform.sh/add-services/rabbitmq.html)
+* [Redis](https://docs.platform.sh/add-services/redis.html)
+* [Solr](https://docs.platform.sh/add-services/solr.html)
+* [Varnish](https://docs.platform.sh/add-services/varnish.html)
 
 Also note that you will need to run a `lando rebuild` for configuration changes to manifest in the same way you normally would for config changes to your Landofile.
 
 ## .platform.app.yaml
 
-Lando will load your [.platform.app.yaml](https://docs.platform.sh/configuration/app.html) and spin up _exactly_ the same things there as you have running on your Platform.sh site. This means that similarly to Platform.sh Lando will also:
+Lando will load your [.platform.app.yaml](https://docs.platform.sh/create-apps.html) and spin up _exactly_ the same things there as you have running on your Platform.sh site. This means that similarly to Platform.sh Lando will also:
 
 * Install any dependencies specificed in the `build.flavor` or `dependencies` keys
 * Run any `build` or `deploy` hooks
@@ -119,7 +119,7 @@ Also note that you will need to run a `lando rebuild` for configuration changes 
 
 ## Multiple applications
 
-Lando _should_ support Platform.sh's [multiple applications configurations](https://docs.platform.sh/configuration/app/multi-app.html) although they are not extensively tested at this point so YMMV.
+Lando _should_ support Platform.sh's [multiple applications configurations](https://docs.platform.sh/create-apps/multi-app.html) although they are not extensively tested at this point so YMMV.
 
 If you have a multiple application setup then you will need to navigate into either the directory that contains the `.platform.app.yaml`  or the `source.root` specified in your `.platform/applications.yaml` file to access the relevant tooling for that app.
 
@@ -168,7 +168,7 @@ Application containers running on Lando will also set up the same [PLATFORM_* pr
 
 Lando _does not_ currently pull variables you have set up in the Platform.sh dashboard so you will need to add those manually.
 
-Lando will also set and honor any [variables](https://docs.platform.sh/configuration/app/variables.html) that have been set up in your `.platform.app.yaml` or `applications.yaml`.
+Lando will also set and honor any [variables](https://docs.platform.sh/create-apps/app-reference.html#variables) that have been set up in your `.platform.app.yaml` or `applications.yaml`.
 
 However, some of these, such as `APP_ENV=prod` do not make a ton of sense for local development. In these situations you can override _any_ Platform.sh variable directly from your Landofile with values that make more sense for local. Here is an example:
 
