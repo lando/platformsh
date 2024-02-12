@@ -1,5 +1,7 @@
 # Platform.sh Lando Plugin
 
+**Warning: This plugin is currently unsupported! If your team is interested in sponsoring the integration, [contact us](https://docs.lando.dev/platformsh/support.html)!**
+
 This is the _official_ [Lando](https://lando.dev) plugin for [Platform.sh](https://platform.sh). When installed it...
 
 * Allows users to spin up their Platform.sh projects for development with Lando
