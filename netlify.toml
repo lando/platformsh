@@ -39,9 +39,9 @@
 # We need this so preview environments and the base site look ok on their own
 [[redirects]]
   from = "/"
-  to = "/platformsh"
+  to = "/plugins/platformsh"
   status = 200
 [[redirects]]
-  from = "/platformsh/*"
+  from = "/plugins/platformsh/*"
   to = "/:splat"
   status = 200
