@@ -1,21 +1,27 @@
-name: Lint Code
+name: Run Docs Tests
 
 on:
   pull_request:
 
 jobs:
-  lint:
+  docs-tests:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os:
-          - ubuntu-22.04
+          - ubuntu-24.04
         node-version:
           - '18'
     steps:
       # Install deps and cache
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Cache version builds
+        uses: actions/cache@v4
+        with:
+          key: lando-mvb-docs
+          path: docs/.vitepress/cache/@lando/mvb
+          save-always: true
       - name: Install node ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
@@ -24,6 +30,10 @@ jobs:
       - name: Install NPM dependencies
         run: npm clean-install --prefer-offline --frozen-lockfile
 
-      # Run the linter
-      - name: Run code linter
+      # Run tests
+      - name: Run linter
         run: npm run lint
+      - name: Test mvb
+        run: npm run docs:mvb
+      - name: Test build
+        run: npm run docs:build
