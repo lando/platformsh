@@ -17,9 +17,9 @@ jobs:
           - examples/mysql-10.3
           - examples/mysql-10.4
         lando-version:
-          - 3-dev-slim
+          - 3-edge-slim
         os:
-          - ubuntu-22.04
+          - ubuntu-24.04
         node-version:
           - '18'
 
@@ -42,7 +42,7 @@ jobs:
           version: dev
           sync: false
       - name: Setup lando ${{ matrix.lando-version }}
-        uses: lando/setup-lando@v2
+        uses: lando/setup-lando@v3
         with:
           lando-version: ${{ matrix.lando-version }}
           config: |
