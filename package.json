@@ -3,7 +3,7 @@
   "description": "A Lando plugin that provides a tight integration with Platform.sh.",
   "version": "0.9.0",
   "author": "Mike Pirog @pirog",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "repository": "lando/platformsh",
   "bugs": "https://github.com/lando/platformsh/issues/new/choose",
   "homepage": "https://github.com/lando/platformsh",
